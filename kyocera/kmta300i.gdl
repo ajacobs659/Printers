@@ -1,0 +1,133 @@
+*%******************************************************************************
+*%                                                                             *
+*% Copyright (c) 2020 KYOCERA Document Solutions Inc.                          *
+*% All Rights Reserved.                                                        *
+*%                                                                             *
+*%******************************************************************************
+
+*%*****************************************************************************
+*%	PAPER SOURCES
+*%*****************************************************************************
+
+*Feature: Cassette34
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: Cassette34
+	{
+		*QueryString: "\Printer.Layout.InputBin.TwoCassettePaperFeeder002:Installed"
+	}
+	*BidiResponse: Cassette34
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(Cassette34)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*%*****************************************************************************
+*%	DOCUMENT FINISHERS
+*%*****************************************************************************
+
+*Feature: InternalFinisher
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: InternalFinisher
+	{
+		*QueryString: "\Printer.Finishing.InnerFinisher:Installed"
+	}
+	*BidiResponse: InternalFinisher
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(InternalFinisher)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*%*****************************************************************************
+*%	JOB SEPARATOR
+*%*****************************************************************************
+
+*Feature: JobSeparator
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: JobSeparator
+	{
+		*QueryString: "\Printer.Finishing.OutputBin.JobSeparator:Installed"
+	}
+	*BidiResponse: JobSeparator
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(JobSeparator)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*Feature: 1000SheetFinisher
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: 1000SheetFinisher
+	{
+		*QueryString: "\Printer.Finishing.1000Finisher:Installed"
+	}
+	*BidiResponse: 1000SheetFinisher
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(1000SheetFinisher)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*%*****************************************************************************
+*%	OPTIONAL DISKS
+*%*****************************************************************************
+
+*Feature: HardDisk
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: HardDisk
+	{
+		*QueryString: "\Printer.Configuration.HardDisk:Installed"
+	}
+	*BidiResponse: HardDisk
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(HardDisk)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+

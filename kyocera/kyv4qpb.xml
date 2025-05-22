@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Properties xmlns= "http://schemas.microsoft.com/windows/2011/08/printing/queueproperties">
+  <Property Name="ChangeFlag">
+    <Bool>true</Bool>
+  </Property>
+  <Property Name="SupportNetManager">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="SendTelemetry">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="TelemetryID">
+    <String>t0u6xAMyuEs5vs4F2ZmXzw==</String>
+  </Property>
+  <Property Name="ShowQuickPrint">
+    <Bool>true</Bool>
+  </Property>
+  <Property Name="HideOtherTabs">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="QuickPrintDefault">
+    <Bool>true</Bool>
+  </Property>
+  <Property Name="HideEditQuickPrint">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="SendCountInfo">
+    <Bool>true</Bool>
+  </Property>
+  <Property Name="SendAppName">
+    <Bool>true</Bool>
+  </Property>
+  <Property Name="AdminPassword">
+    <String></String>
+  </Property>
+  <Property Name="HideFactoryDefault">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="HideLowerPane">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="NotifyPrintDone">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="SpecificEmailAd">
+    <String></String>
+  </Property>
+  <Property Name="PromptForEmailAd">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="NotifyPrintInterruption">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="OperationPanelMessage">
+    <String>None</String>
+  </Property>
+  <Property Name="LockBWMode">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="LockEcoPrint">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="LockDuplex">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="LockMultiplePagesPerSheet">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="LockJobTab">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="LockWatermark">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="LockPassword">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="LockPasswordString">
+    <String></String>
+  </Property>
+  <Property Name="Duplex">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="HDD">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="KACTVersion">
+    <String></String>
+  </Property>
+  <Property Name="MemorySize">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="ModelName">
+    <String></String>
+  </Property>
+  <Property Name="Options">
+    <String></String>
+  </Property>
+  <Property Name="RDiskMode">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="RDiskSize">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="Status">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="SDCard">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="CustomMediaName">
+    <String></String>
+  </Property>
+  <Property Name="HDDSize">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="PunchCount">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="SnmpSetting">
+    <String>v1v2</String>
+  </Property>
+  <Property Name="Snmpv1v2ReadCommunityName">
+    <String>public</String>
+  </Property>
+  <Property Name="Snmpv1v2WriteCommunityName">
+    <String>public</String>
+  </Property>
+  <Property Name="Snmpv3Authentication">
+    <String></String>
+  </Property>
+  <Property Name="Snmpv3Privacy">
+    <String></String>
+  </Property>
+  <Property Name="Snmpv3UserName">
+    <String></String>
+  </Property>
+  <Property Name="Snmpv3Password">
+    <String></String>
+  </Property>
+  <Property Name="ExternalStorage">
+    <String></String>
+  </Property>  
+  <Property Name="DeviceOptions">
+    <String></String>
+  </Property>  
+  <Property Name="RecentPrinterInfo">
+    <String></String>
+  </Property> 
+  <Property Name="NotifyPrintCompleted">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="NotifyPrintSuspended">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="EmailAddress">
+    <String></String>
+  </Property>
+  <Property Name="ChinaRedInstalled">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="Region">
+    <String></String>
+  </Property>
+  <Property Name="RAMSize">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="WorkflowPolicy">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="DuplexDefault">
+    <Bool>true</Bool>
+  </Property>
+</Properties>

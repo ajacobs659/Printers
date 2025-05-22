@@ -1,0 +1,85 @@
+*%******************************************************************************
+*%                                                                             *
+*% Copyright (c) 2020 KYOCERA Document Solutions Inc.                          *
+*% All Rights Reserved.                                                        *
+*%                                                                             *
+*%******************************************************************************
+
+*%*****************************************************************************
+*%	PAPER SOURCES
+*%*****************************************************************************
+
+*Feature: Cassette34
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: Cassette34
+	{
+		*QueryString: "\Printer.Layout.InputBin.TwoCassettePaperFeeder002:Installed"
+	}
+	*BidiResponse: Cassette34
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(Cassette34)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*%*****************************************************************************
+*%	DOCUMENT FINISHERS
+*%*****************************************************************************
+
+*Feature: 500SheetFinisher
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: 500SheetFinisher
+	{
+		*QueryString: "\Printer.Finishing.500Finisher:Installed"
+	}
+	*BidiResponse: 500SheetFinisher
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(500SheetFinisher)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*%*****************************************************************************
+*%	OPTIONAL DISKS
+*%*****************************************************************************
+
+*Feature: HardDisk
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: HardDisk
+	{
+		*QueryString: "\Printer.Configuration.HardDisk:Installed"
+	}
+	*BidiResponse: HardDisk
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(HardDisk)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+

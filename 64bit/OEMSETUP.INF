@@ -1,0 +1,2204 @@
+;================================================================
+;
+;  OEMSETUP.INF
+;
+;  KYOCERA Document Solutions Printing System Installation Script
+;  Windows XP x64 (Multi Language excluding Japanese)
+;  Point & Print Version
+;  
+;  (C) 2019 KYOCERA Document Solutions Inc.
+;
+;  FAX_LIB 1.00  12/10/2010
+;
+;================================================================
+
+[Version]
+Signature  = "$Windows NT$"
+Class      = Printer
+ClassGUID  = {4D36E979-E325-11CE-BFC1-08002BE10318}
+Provider   = %KMC%
+CatalogFile= KYOMITA.CAT
+DriverVer  = 10/02/2019,7.0.1002
+
+[ClassInstall]
+AddReg=ClassAddReg
+DelReg=ClassDelReg
+
+[ClassAddReg]
+HKR,,,,%CLASSNAME%
+HKR,,Installer,,MSPRINT.DLL
+HKR,,Icon,,-4
+HKR,,NoDisplayClass,,1
+
+[ClassDelReg]
+HKLM,"System\CurrentControlSet\Services\Class\Printer","NoUseClass"
+
+[Environment]
+UpdateInis=EnvUpdateInis
+AddReg=EnvAddReg
+
+[EnvUpdateInis]
+win.ini,Ports,"LPT1.DOS=",
+win.ini,Ports,"LPT2.DOS=",
+win.ini,Ports,"LPT3.DOS=",
+win.ini,Ports,"LPT1.OS2=",
+win.ini,Ports,"LPT2.OS2=",
+win.ini,Ports,"LPT3.OS2=",
+win.ini,windows,"Spooler=",
+win.ini,windows,"DosPrint=",
+win.ini,windows,"DeviCENotSelectedTimeout=",
+win.ini,windows,"TransmissionRetryTimeout=",
+
+[EnvAddReg]
+HKLM,"System\CurrentControlSet\Control\Print\Environments\Windows 4.0","Directory",,"CHICAGO"
+HKLM,"System\CurrentControlSet\Control\Print\Environments\Windows 4.0\Drivers",,,
+HKLM,"System\CurrentControlSet\Control\Print\Environments\Windows 4.0\Print Processors",,,
+HKLM,"System\CurrentControlSet\Control\Print\Monitors",,,
+HKLM,"System\CurrentControlSet\Control\Print\Printers",,,
+HKLM,"System\CurrentControlSet\Control\Print\Printers","StartOnBoot",1,01,00,00,00
+HKLM,"System\CurrentControlSet\Control\Print\Providers",,,
+
+;----------------------------------------------------------------
+; Manufacturer Section
+;----------------------------------------------------------------
+[Manufacturer]
+Kyocera=Kyocera,NTx86.5.1,NTx86.6.0,NTamd64.5.1,NTamd64.6.0
+
+;----------------------------------------------------------------
+; Model Sections
+;----------------------------------------------------------------
+[Kyocera.NTx86.5.1]
+"Kyocera FS-1128MFP NW-FAX"      = FS-1128
+"Kyocera KM-2820 NW-FAX"         = KM-1128
+"Kyocera KM-2560 NW-FAX"         = KM-2560
+"Kyocera KM-3050 NW-FAX"         = KM-3050
+"Kyocera KM-3060 NW-FAX"         = KM-3060
+"Kyocera KM-4050 NW-FAX"         = KM-4050
+"Kyocera KM-5050 NW-FAX"         = KM-5050
+"Kyocera TASKalfa 250ci NW-FAX"  = TA-250CI
+"Kyocera TASKalfa 300ci NW-FAX"  = TA-300CI
+"Kyocera TASKalfa 400ci NW-FAX"  = TA-400CI
+"Kyocera TASKalfa 500ci NW-FAX"  = TA-500CI
+"Kyocera TASKalfa 552ci NW-FAX"  = TA-552CI
+"Kyocera TASKalfa 300i NW-FAX"   = TA-300I
+"Kyocera TASKalfa 420i NW-FAX"   = TA-420I
+"Kyocera TASKalfa 520i NW-FAX"   = TA-520I
+"Kyocera FS-C2126MFP NW-FAX"     = FS-C2126
+"Kyocera FS-3140MFP NW-FAX"      = FS-3140
+"Kyocera TASKalfa 2550ci NW-FAX"  = TA-255CI
+"Kyocera TASKalfa 3050ci NW-FAX"  = TA-305CI
+"Kyocera TASKalfa 3550ci NW-FAX"  = TA-355CI
+"Kyocera TASKalfa 4550ci NW-FAX"  = TA-455CI
+"Kyocera TASKalfa 5550ci NW-FAX"  = TA-555CI
+"Kyocera TASKalfa 5500i NW-FAX"   = TA-5500I
+"Kyocera TASKalfa 4500i NW-FAX"   = TA-4500I
+"Kyocera TASKalfa 3500i NW-FAX"   = TA-3500I
+"Kyocera TASKalfa 7550ci NW-FAX"  = TA-755CI
+"Kyocera TASKalfa 6550ci NW-FAX"  = TA-655CI
+"Kyocera TASKalfa 8000i NW-FAX"   = TA-8000I
+"Kyocera TASKalfa 6500i NW-FAX"   = TA-6500I
+"Kyocera FS-C2626MFP NW-FAX"     = FS-C2626
+"Kyocera FS-C2126MFP+ NW-FAX"     = FS-C2326
+"Kyocera FS-3640MFP NW-FAX"      = FS-3640
+"Kyocera FS-3140MFP+ NW-FAX"      = FS-3340
+"Kyocera FS-1130MFP NW-FAX"  = FS-1130
+"Kyocera FS-1135MFP NW-FAX"  = FS-1135
+"Kyocera FS-C8025MFP NW-FAX"    = FS-8025
+"Kyocera FS-C8020MFP NW-FAX"    = FS-8020
+"Kyocera FS-C8520MFP NW-FAX"  = FS-C8520
+"Kyocera FS-C8525MFP NW-FAX"  = FS-C8525
+"Kyocera TASKalfa 255c NW-FAX"  = FS-8025
+"Kyocera TASKalfa 205c NW-FAX"  = FS-8020
+"Kyocera FS-6030MFP NW-FAX"    = FS-6030
+"Kyocera FS-6025MFP NW-FAX"    = FS-6025
+"Kyocera FS-6525MFP NW-FAX"  = FS-6525
+"Kyocera FS-6530MFP NW-FAX"  = FS-6530
+"Kyocera TASKalfa 305 NW-FAX"  = FS-6030
+"Kyocera TASKalfa 255 NW-FAX"  = FS-6025
+"Kyocera TASKalfa 3051ci NW-FAX"  = TA-3051CI
+"Kyocera TASKalfa 3551ci NW-FAX"  = TA-3551CI
+"Kyocera TASKalfa 4551ci NW-FAX"  = TA-4551CI
+"Kyocera TASKalfa 5551ci NW-FAX"  = TA-5551CI
+"Kyocera TASKalfa 5501i NW-FAX"   = TA-5501I
+"Kyocera TASKalfa 4501i NW-FAX"   = TA-4501I
+"Kyocera TASKalfa 3501i NW-FAX"   = TA-3501I
+"Kyocera TASKalfa 7551ci NW-FAX"  = TA-7551CI
+"Kyocera TASKalfa 6551ci NW-FAX"  = TA-6551CI
+"Kyocera TASKalfa 8001i NW-FAX"   = TA-8001I
+"Kyocera TASKalfa 6501i NW-FAX"   = TA-6501I
+"Kyocera TASKalfa 265ci NW-FAX"  = KM-265CI
+"Kyocera TASKalfa 2551ci NW-FAX"  = TA-2551CI
+"Kyocera TASKalfa 3510i NW-FAX"   = TA-3510I
+"Kyocera TASKalfa 3010i NW-FAX"   = TA-3010I
+"Kyocera TASKalfa 266ci NW-FAX"			= KM-266CI
+"Kyocera TASKalfa 306ci NW-FAX"			= KM-306CI
+"Kyocera TASKalfa 356ci NW-FAX"			= KM-356CI
+"Kyocera TASKalfa 406ci NW-FAX"			= KM-406CI
+"Kyocera TASKalfa 2552ci NW-FAX"  		= KM-2552ci
+"Kyocera TASKalfa 3252ci NW-FAX"  		= KM-3252ci
+"Kyocera TASKalfa 3552ci NW-FAX"  		= KM-3552ci
+"Kyocera TASKalfa 4052ci NW-FAX"		= KM-4052ci
+"Kyocera TASKalfa 5052ci NW-FAX"		= KM-5052ci
+"Kyocera TASKalfa 6052ci NW-FAX"		= KM-6052ci
+"Kyocera TASKalfa 4002i NW-FAX"			= KM-4002i
+"Kyocera TASKalfa 5002i NW-FAX"			= KM-5002i
+"Kyocera TASKalfa 6002i NW-FAX"			= KM-6002i
+"Kyocera TASKalfa 7002i NW-FAX"			= KM-7002i
+"Kyocera TASKalfa 8002i NW-FAX"			= KM-8002i
+"Kyocera TASKalfa 7052ci NW-FAX"  		= KM-7052ci
+"Kyocera TASKalfa 8052ci NW-FAX"  		= KM-8052ci
+"Kyocera TASKalfa 3011i NW-FAX"  		= KM-3011i
+"Kyocera TASKalfa 3511i NW-FAX"  		= KM-3511i
+"Kyocera TASKalfa 308ci NW-FAX"  		= KM-308ci
+"Kyocera TASKalfa 350ci NW-FAX"			= KM-350ci
+"Kyocera TASKalfa 351ci NW-FAX"			= KM-351CI
+"Kyocera TASKalfa 3212i NW-FAX"  		= KM-3212
+"Kyocera TASKalfa 4012i NW-FAX"			= KM-4012
+"Kyocera TASKalfa 2553ci NW-FAX"  		= KM-2553ci
+"Kyocera TASKalfa 3253ci NW-FAX"  		= KM-3253ci
+"Kyocera TASKalfa 3553ci NW-FAX"  		= KM-3553ci
+"Kyocera TASKalfa 4053ci NW-FAX"		= KM-4053ci
+"Kyocera TASKalfa 5053ci NW-FAX"		= KM-5053ci
+"Kyocera TASKalfa 6053ci NW-FAX"		= KM-6053ci
+"Kyocera TASKalfa 4003i NW-FAX"			= KM-4003i
+"Kyocera TASKalfa 5003i NW-FAX"			= KM-5003i
+"Kyocera TASKalfa 6003i NW-FAX"			= KM-6003i
+"Kyocera TASKalfa 307ci NW-FAX"		= KM-307ci
+"Kyocera TASKalfa 9003i NW-FAX"			= KM-9003i
+"Kyocera TASKalfa 7003i NW-FAX"			= KM-7003i
+"Kyocera TASKalfa 8003i NW-FAX"			= KM-8003i
+"Kyocera TASKalfa 9002i NW-FAX"  = KM-9002i
+
+"Kyocera CS-2560 NW-FAX"         = KM-2560
+"Kyocera CS-3050 NW-FAX"         = KM-3050
+"Kyocera CS-3060 NW-FAX"         = KM-3060
+"Kyocera CS-4050 NW-FAX"         = KM-4050
+"Kyocera CS-5050 NW-FAX"         = KM-5050
+"Kyocera CS 250ci NW-FAX"        = TA-250CI
+"Kyocera CS 300ci NW-FAX"        = TA-300CI
+"Kyocera CS 400ci NW-FAX"        = TA-400CI
+"Kyocera CS 500ci NW-FAX"        = TA-500CI
+"Kyocera CS 552ci NW-FAX"        = TA-552CI
+"Kyocera CS 300i NW-FAX"         = TA-300I
+"Kyocera CS 420i NW-FAX"         = TA-420I
+"Kyocera CS 520i NW-FAX"         = TA-520I
+"Kyocera CS 2550ci NW-FAX"  = CS-255CI
+"Kyocera CS 3050ci NW-FAX"  = TA-305CI
+"Kyocera CS 3550ci NW-FAX"  = TA-355CI
+"Kyocera CS 4550ci NW-FAX"  = TA-455CI
+"Kyocera CS 5550ci NW-FAX"  = TA-555CI
+"Kyocera CS 5500i NW-FAX"   = TA-5500I
+"Kyocera CS 4500i NW-FAX"   = TA-4500I
+"Kyocera CS 3500i NW-FAX"   = TA-3500I
+"Kyocera CS 7550ci NW-FAX"  = TA-755CI
+"Kyocera CS 6550ci NW-FAX"  = TA-655CI
+"Kyocera CS 8000i NW-FAX"   = TA-8000I
+"Kyocera CS 6500i NW-FAX"   = TA-6500I
+"Kyocera CS 255c NW-FAX"        = FS-8025
+"Kyocera CS 205c NW-FAX"        = FS-8020
+"Kyocera CS 305 NW-FAX"        = FS-6030
+"Kyocera CS 255 NW-FAX"        = FS-6025
+"Kyocera CS 3051ci NW-FAX"  = TA-3051CI
+"Kyocera CS 3551ci NW-FAX"  = TA-3551CI
+"Kyocera CS 4551ci NW-FAX"  = TA-4551CI
+"Kyocera CS 5551ci NW-FAX"  = TA-5551CI
+"Kyocera CS 5501i NW-FAX"   = TA-5501I
+"Kyocera CS 4501i NW-FAX"   = TA-4501I
+"Kyocera CS 3501i NW-FAX"   = TA-3501I
+"Kyocera CS 7551ci NW-FAX"  = TA-7551CI
+"Kyocera CS 6551ci NW-FAX"  = TA-6551CI
+"Kyocera CS 8001i NW-FAX"   = TA-8001I
+"Kyocera CS 6501i NW-FAX"   = TA-6501I
+"Kyocera CS 2551ci NW-FAX"  = TA-2551CI
+"Kyocera CS 3510i NW-FAX"  = TA-3510I
+"Kyocera CS 3010i NW-FAX"  = TA-3010I
+"Kyocera CS 306ci NW-FAX"			= KM-306CI
+"Kyocera CS 356ci NW-FAX"			= KM-356CI
+"Kyocera CS 406ci NW-FAX"			= KM-406CI
+"Kyocera CS 2552ci NW-FAX"		  		= KM-2552ci
+"Kyocera CS 3252ci NW-FAX"	 	 		= KM-3252ci
+"Kyocera CS 3552ci NW-FAX"	 	 		= KM-3552ci
+"Kyocera CS 4052ci NW-FAX"				= KM-4052ci
+"Kyocera CS 5052ci NW-FAX"				= KM-5052ci
+"Kyocera CS 6052ci NW-FAX"				= KM-6052ci
+"Kyocera CS 4002i NW-FAX"				= KM-4002i
+"Kyocera CS 5002i NW-FAX"				= KM-5002i
+"Kyocera CS 6002i NW-FAX"				= KM-6002i
+"Kyocera CS 7002i NW-FAX"				= KM-7002i
+"Kyocera CS 8002i NW-FAX"				= KM-8002i
+"Kyocera CS 7052ci NW-FAX"  			= KM-7052ci
+"Kyocera CS 8052ci NW-FAX"  			= KM-8052ci
+"Kyocera CS 3011i NW-FAX"				= KM-3011i
+"Kyocera CS 3511i NW-FAX"  				= KM-3511i
+"Kyocera CS 308ci NW-FAX"		  		= KM-308ci
+"Kyocera CS 3212i NW-FAX"  				= KM-3212
+"Kyocera CS 4012i NW-FAX"				= KM-4012
+"Kyocera CS 2553ci NW-FAX"		  		= KM-2553ci
+"Kyocera CS 3253ci NW-FAX"	 	 		= KM-3253ci
+"Kyocera CS 3553ci NW-FAX"	 	 		= KM-3553ci
+"Kyocera CS 4053ci NW-FAX"				= KM-4053ci
+"Kyocera CS 5053ci NW-FAX"				= KM-5053ci
+"Kyocera CS 6053ci NW-FAX"				= KM-6053ci
+"Kyocera CS 4003i NW-FAX"				= KM-4003i
+"Kyocera CS 5003i NW-FAX"				= KM-5003i
+"Kyocera CS 6003i NW-FAX"				= KM-6003i
+"Kyocera CS 307ci NW-FAX"		= KM-307ci
+"Kyocera CS 9003i NW-FAX"				= KM-9003i
+"Kyocera CS 7003i NW-FAX"				= KM-7003i
+"Kyocera CS 8003i NW-FAX"				= KM-8003i
+"Kyocera CS 9002i NW-FAX"         = KM-9002i
+
+"Kyocera ECOSYS M3540dn NW-FAX"  = KM3540
+"Kyocera ECOSYS M3540idn NW-FAX"  = KM3540I
+"Kyocera ECOSYS M3550idn NW-FAX"   = KM3550I
+"Kyocera ECOSYS M3560idn NW-FAX"   = KM3560I
+"Kyocera ECOSYS M2530dn NW-FAX"  		= KM-2530
+"Kyocera ECOSYS M2535dn NW-FAX"  		= KM-2535
+"Kyocera ECOSYS M6526cdn NW-FAX" 		= KM-6526
+"Kyocera ECOSYS M6526cdn Type B NW-FAX" = KM-6526
+"Kyocera ECOSYS M6526cidn NW-FAX"		= KM-6526H
+"Kyocera ECOSYS M6526cidn Type B NW-FAX"= KM-6526H
+"Kyocera ECOSYS M6530cdn NW-FAX"		= KM-6530
+"Kyocera ECOSYS M6535cidn NW-FAX"		= KM-6535
+"Kyocera ECOSYS M2635dn NW-FAX"  		= KM-2635n
+"Kyocera ECOSYS M2635dw NW-FAX"  		= KM-2635w
+"Kyocera ECOSYS M2540dw NW-FAX" 		= KM-2540w
+"Kyocera ECOSYS M2640idw NW-FAX" 		= KM-2640iw
+"Kyocera ECOSYS M2735dw NW-FAX" 		= KM-2735w
+"Kyocera ECOSYS M2540dn NW-FAX" 		= KM-2540n
+"Kyocera ECOSYS M5521cdn NW-FAX"  		= KM-5521
+"Kyocera ECOSYS M5521cdw NW-FAX"  		= KM-5521w
+"Kyocera ECOSYS M5526cdn NW-FAX"		= KM-5526
+"Kyocera ECOSYS M5526cdw NW-FAX"		= KM-5526w
+"Kyocera ECOSYS M5525cdn NW-FAX"		= KM-5525
+"Kyocera ECOSYS M5520cdw NW-FAX"		= KM-5520w
+"Kyocera ECOSYS M5520cdn NW-FAX"		= KM-5520
+"Kyocera ECOSYS M4125idn NW-FAX"  		= KM-4125
+"Kyocera ECOSYS M4132idn NW-FAX"		= KM-4132
+"Kyocera ECOSYS M8124cidn NW-FAX"  		= KM-8124
+"Kyocera ECOSYS M8130cidn NW-FAX"		= KM-8130
+"Kyocera ECOSYS M6635cidn NW-FAX"		= KM-6635
+"Kyocera ECOSYS M6630cidn NW-FAX"		= KM-6630
+"Kyocera ECOSYS M3645dn NW-FAX"  		= KM-3645
+"Kyocera ECOSYS M3645idn NW-FAX"		= KM-3645I
+"Kyocera ECOSYS M3655idn NW-FAX"		= KM-3655
+"Kyocera ECOSYS M3660idn NW-FAX"		= KM-3660
+"Kyocera ECOSYS M2735dn NW-FAX"		= KM-2735dn
+"Kyocera ECOSYS M2835dw NW-FAX"		= KM-2835dw
+"Kyocera ECOSYS M3860idnf NW-FAX"  		= KM-3860idnf
+"Kyocera ECOSYS M3860idn NW-FAX"		= KM-3860idn
+[Kyocera.NTx86.6.0]
+"Kyocera FS-1128MFP NW-FAX"      = FS-1128
+"Kyocera KM-2820 NW-FAX"         = KM-1128
+"Kyocera KM-2560 NW-FAX"         = KM-2560
+"Kyocera KM-3050 NW-FAX"         = KM-3050
+"Kyocera KM-3060 NW-FAX"         = KM-3060
+"Kyocera KM-4050 NW-FAX"         = KM-4050
+"Kyocera KM-5050 NW-FAX"         = KM-5050
+"Kyocera TASKalfa 250ci NW-FAX"  = TA-250CI
+"Kyocera TASKalfa 300ci NW-FAX"  = TA-300CI
+"Kyocera TASKalfa 400ci NW-FAX"  = TA-400CI
+"Kyocera TASKalfa 500ci NW-FAX"  = TA-500CI
+"Kyocera TASKalfa 552ci NW-FAX"  = TA-552CI
+"Kyocera TASKalfa 300i NW-FAX"   = TA-300I
+"Kyocera TASKalfa 420i NW-FAX"   = TA-420I
+"Kyocera TASKalfa 520i NW-FAX"   = TA-520I
+"Kyocera FS-C2126MFP NW-FAX"     = FS-C2126
+"Kyocera FS-3140MFP NW-FAX"      = FS-3140
+"Kyocera TASKalfa 2550ci NW-FAX"  = TA-255CI
+"Kyocera TASKalfa 3050ci NW-FAX"  = TA-305CI
+"Kyocera TASKalfa 3550ci NW-FAX"  = TA-355CI
+"Kyocera TASKalfa 4550ci NW-FAX"  = TA-455CI
+"Kyocera TASKalfa 5550ci NW-FAX"  = TA-555CI
+"Kyocera TASKalfa 5500i NW-FAX"   = TA-5500I
+"Kyocera TASKalfa 4500i NW-FAX"   = TA-4500I
+"Kyocera TASKalfa 3500i NW-FAX"   = TA-3500I
+"Kyocera TASKalfa 7550ci NW-FAX"  = TA-755CI
+"Kyocera TASKalfa 6550ci NW-FAX"  = TA-655CI
+"Kyocera TASKalfa 8000i NW-FAX"   = TA-8000I
+"Kyocera TASKalfa 6500i NW-FAX"   = TA-6500I
+"Kyocera FS-C2626MFP NW-FAX"     = FS-C2626
+"Kyocera FS-C2126MFP+ NW-FAX"     = FS-C2326
+"Kyocera FS-3640MFP NW-FAX"      = FS-3640
+"Kyocera FS-3140MFP+ NW-FAX"      = FS-3340
+"Kyocera FS-1130MFP NW-FAX"  = FS-1130
+"Kyocera FS-1135MFP NW-FAX"  = FS-1135
+"Kyocera FS-C8025MFP NW-FAX"    = FS-8025
+"Kyocera FS-C8020MFP NW-FAX"    = FS-8020
+"Kyocera FS-C8520MFP NW-FAX"  = FS-C8520
+"Kyocera FS-C8525MFP NW-FAX"  = FS-C8525
+"Kyocera TASKalfa 255c NW-FAX"  = FS-8025
+"Kyocera TASKalfa 205c NW-FAX"  = FS-8020
+"Kyocera FS-6030MFP NW-FAX"    = FS-6030
+"Kyocera FS-6025MFP NW-FAX"    = FS-6025
+"Kyocera FS-6525MFP NW-FAX"  = FS-6525
+"Kyocera FS-6530MFP NW-FAX"  = FS-6530
+"Kyocera TASKalfa 305 NW-FAX"  = FS-6030
+"Kyocera TASKalfa 255 NW-FAX"  = FS-6025
+"Kyocera TASKalfa 3051ci NW-FAX"  = TA-3051CI
+"Kyocera TASKalfa 3551ci NW-FAX"  = TA-3551CI
+"Kyocera TASKalfa 4551ci NW-FAX"  = TA-4551CI
+"Kyocera TASKalfa 5551ci NW-FAX"  = TA-5551CI
+"Kyocera TASKalfa 5501i NW-FAX"   = TA-5501I
+"Kyocera TASKalfa 4501i NW-FAX"   = TA-4501I
+"Kyocera TASKalfa 3501i NW-FAX"   = TA-3501I
+"Kyocera TASKalfa 7551ci NW-FAX"  = TA-7551CI
+"Kyocera TASKalfa 6551ci NW-FAX"  = TA-6551CI
+"Kyocera TASKalfa 8001i NW-FAX"   = TA-8001I
+"Kyocera TASKalfa 6501i NW-FAX"   = TA-6501I
+"Kyocera TASKalfa 265ci NW-FAX"  = KM-265CI
+"Kyocera TASKalfa 2551ci NW-FAX"  = TA-2551CI
+"Kyocera TASKalfa 3510i NW-FAX"   = TA-3510I
+"Kyocera TASKalfa 3010i NW-FAX"   = TA-3010I
+"Kyocera TASKalfa 266ci NW-FAX"			= KM-266CI
+"Kyocera TASKalfa 306ci NW-FAX"			= KM-306CI
+"Kyocera TASKalfa 356ci NW-FAX"			= KM-356CI
+"Kyocera TASKalfa 406ci NW-FAX"			= KM-406CI
+"Kyocera TASKalfa 2552ci NW-FAX"  		= KM-2552ci
+"Kyocera TASKalfa 3252ci NW-FAX"  		= KM-3252ci
+"Kyocera TASKalfa 3552ci NW-FAX"  		= KM-3552ci
+"Kyocera TASKalfa 4052ci NW-FAX"		= KM-4052ci
+"Kyocera TASKalfa 5052ci NW-FAX"		= KM-5052ci
+"Kyocera TASKalfa 6052ci NW-FAX"		= KM-6052ci
+"Kyocera TASKalfa 4002i NW-FAX"			= KM-4002i
+"Kyocera TASKalfa 5002i NW-FAX"			= KM-5002i
+"Kyocera TASKalfa 6002i NW-FAX"			= KM-6002i
+"Kyocera TASKalfa 7002i NW-FAX"			= KM-7002i
+"Kyocera TASKalfa 8002i NW-FAX"			= KM-8002i
+"Kyocera TASKalfa 7052ci NW-FAX"  		= KM-7052ci
+"Kyocera TASKalfa 8052ci NW-FAX"  		= KM-8052ci
+"Kyocera TASKalfa 3011i NW-FAX"  		= KM-3011i
+"Kyocera TASKalfa 3511i NW-FAX"  		= KM-3511i
+"Kyocera TASKalfa 308ci NW-FAX"  		= KM-308ci
+"Kyocera TASKalfa 350ci NW-FAX"			= KM-350ci
+"Kyocera TASKalfa 351ci NW-FAX"			= KM-351CI
+"Kyocera TASKalfa 3212i NW-FAX"  		= KM-3212
+"Kyocera TASKalfa 4012i NW-FAX"			= KM-4012
+"Kyocera TASKalfa 2553ci NW-FAX"  		= KM-2553ci
+"Kyocera TASKalfa 3253ci NW-FAX"  		= KM-3253ci
+"Kyocera TASKalfa 3553ci NW-FAX"  		= KM-3553ci
+"Kyocera TASKalfa 4053ci NW-FAX"		= KM-4053ci
+"Kyocera TASKalfa 5053ci NW-FAX"		= KM-5053ci
+"Kyocera TASKalfa 6053ci NW-FAX"		= KM-6053ci
+"Kyocera TASKalfa 4003i NW-FAX"			= KM-4003i
+"Kyocera TASKalfa 5003i NW-FAX"			= KM-5003i
+"Kyocera TASKalfa 6003i NW-FAX"			= KM-6003i
+"Kyocera TASKalfa 307ci NW-FAX"		= KM-307ci
+"Kyocera TASKalfa 9003i NW-FAX"			= KM-9003i
+"Kyocera TASKalfa 7003i NW-FAX"			= KM-7003i
+"Kyocera TASKalfa 8003i NW-FAX"			= KM-8003i
+"Kyocera TASKalfa 9002i NW-FAX"  = KM-9002i
+
+"Kyocera CS-2560 NW-FAX"         = KM-2560
+"Kyocera CS-3050 NW-FAX"         = KM-3050
+"Kyocera CS-3060 NW-FAX"         = KM-3060
+"Kyocera CS-4050 NW-FAX"         = KM-4050
+"Kyocera CS-5050 NW-FAX"         = KM-5050
+"Kyocera CS 250ci NW-FAX"        = TA-250CI
+"Kyocera CS 300ci NW-FAX"        = TA-300CI
+"Kyocera CS 400ci NW-FAX"        = TA-400CI
+"Kyocera CS 500ci NW-FAX"        = TA-500CI
+"Kyocera CS 552ci NW-FAX"        = TA-552CI
+"Kyocera CS 300i NW-FAX"         = TA-300I
+"Kyocera CS 420i NW-FAX"         = TA-420I
+"Kyocera CS 520i NW-FAX"         = TA-520I
+"Kyocera CS 2550ci NW-FAX"  = CS-255CI
+"Kyocera CS 3050ci NW-FAX"  = TA-305CI
+"Kyocera CS 3550ci NW-FAX"  = TA-355CI
+"Kyocera CS 4550ci NW-FAX"  = TA-455CI
+"Kyocera CS 5550ci NW-FAX"  = TA-555CI
+"Kyocera CS 5500i NW-FAX"   = TA-5500I
+"Kyocera CS 4500i NW-FAX"   = TA-4500I
+"Kyocera CS 3500i NW-FAX"   = TA-3500I
+"Kyocera CS 7550ci NW-FAX"  = TA-755CI
+"Kyocera CS 6550ci NW-FAX"  = TA-655CI
+"Kyocera CS 8000i NW-FAX"   = TA-8000I
+"Kyocera CS 6500i NW-FAX"   = TA-6500I
+"Kyocera CS 255c NW-FAX"        = FS-8025
+"Kyocera CS 205c NW-FAX"        = FS-8020
+"Kyocera CS 305 NW-FAX"        = FS-6030
+"Kyocera CS 255 NW-FAX"        = FS-6025
+"Kyocera CS 3051ci NW-FAX"  = TA-3051CI
+"Kyocera CS 3551ci NW-FAX"  = TA-3551CI
+"Kyocera CS 4551ci NW-FAX"  = TA-4551CI
+"Kyocera CS 5551ci NW-FAX"  = TA-5551CI
+"Kyocera CS 5501i NW-FAX"   = TA-5501I
+"Kyocera CS 4501i NW-FAX"   = TA-4501I
+"Kyocera CS 3501i NW-FAX"   = TA-3501I
+"Kyocera CS 7551ci NW-FAX"  = TA-7551CI
+"Kyocera CS 6551ci NW-FAX"  = TA-6551CI
+"Kyocera CS 8001i NW-FAX"   = TA-8001I
+"Kyocera CS 6501i NW-FAX"   = TA-6501I
+"Kyocera CS 2551ci NW-FAX"  = TA-2551CI
+"Kyocera CS 3510i NW-FAX"  = TA-3510I
+"Kyocera CS 3010i NW-FAX"  = TA-3010I
+"Kyocera CS 306ci NW-FAX"			= KM-306CI
+"Kyocera CS 356ci NW-FAX"			= KM-356CI
+"Kyocera CS 406ci NW-FAX"			= KM-406CI
+"Kyocera CS 2552ci NW-FAX"		  		= KM-2552ci
+"Kyocera CS 3252ci NW-FAX"	 	 		= KM-3252ci
+"Kyocera CS 3552ci NW-FAX"	 	 		= KM-3552ci
+"Kyocera CS 4052ci NW-FAX"				= KM-4052ci
+"Kyocera CS 5052ci NW-FAX"				= KM-5052ci
+"Kyocera CS 6052ci NW-FAX"				= KM-6052ci
+"Kyocera CS 4002i NW-FAX"				= KM-4002i
+"Kyocera CS 5002i NW-FAX"				= KM-5002i
+"Kyocera CS 6002i NW-FAX"				= KM-6002i
+"Kyocera CS 7002i NW-FAX"				= KM-7002i
+"Kyocera CS 8002i NW-FAX"				= KM-8002i
+"Kyocera CS 7052ci NW-FAX"  			= KM-7052ci
+"Kyocera CS 8052ci NW-FAX"  			= KM-8052ci
+"Kyocera CS 3011i NW-FAX"				= KM-3011i
+"Kyocera CS 3511i NW-FAX"  				= KM-3511i
+"Kyocera CS 308ci NW-FAX"		  		= KM-308ci
+"Kyocera CS 3212i NW-FAX"  				= KM-3212
+"Kyocera CS 4012i NW-FAX"				= KM-4012
+"Kyocera CS 2553ci NW-FAX"		  		= KM-2553ci
+"Kyocera CS 3253ci NW-FAX"	 	 		= KM-3253ci
+"Kyocera CS 3553ci NW-FAX"	 	 		= KM-3553ci
+"Kyocera CS 4053ci NW-FAX"				= KM-4053ci
+"Kyocera CS 5053ci NW-FAX"				= KM-5053ci
+"Kyocera CS 6053ci NW-FAX"				= KM-6053ci
+"Kyocera CS 4003i NW-FAX"				= KM-4003i
+"Kyocera CS 5003i NW-FAX"				= KM-5003i
+"Kyocera CS 6003i NW-FAX"				= KM-6003i
+"Kyocera CS 307ci NW-FAX"		= KM-307ci
+"Kyocera CS 9003i NW-FAX"				= KM-9003i
+"Kyocera CS 7003i NW-FAX"				= KM-7003i
+"Kyocera CS 8003i NW-FAX"				= KM-8003i
+"Kyocera CS 9002i NW-FAX"         = KM-9002i
+
+"Kyocera ECOSYS M3540dn NW-FAX"  = KM3540
+"Kyocera ECOSYS M3540idn NW-FAX"  = KM3540I
+"Kyocera ECOSYS M3550idn NW-FAX"   = KM3550I
+"Kyocera ECOSYS M3560idn NW-FAX"   = KM3560I
+"Kyocera ECOSYS M2530dn NW-FAX"  		= KM-2530
+"Kyocera ECOSYS M2535dn NW-FAX"  		= KM-2535
+"Kyocera ECOSYS M6526cdn NW-FAX" 		= KM-6526
+"Kyocera ECOSYS M6526cdn Type B NW-FAX" = KM-6526
+"Kyocera ECOSYS M6526cidn NW-FAX"		= KM-6526H
+"Kyocera ECOSYS M6526cidn Type B NW-FAX"= KM-6526H
+"Kyocera ECOSYS M6530cdn NW-FAX"		= KM-6530
+"Kyocera ECOSYS M6535cidn NW-FAX"		= KM-6535
+"Kyocera ECOSYS M2635dn NW-FAX"  		= KM-2635n
+"Kyocera ECOSYS M2635dw NW-FAX"  		= KM-2635w
+"Kyocera ECOSYS M2540dw NW-FAX" 		= KM-2540w
+"Kyocera ECOSYS M2640idw NW-FAX" 		= KM-2640iw
+"Kyocera ECOSYS M2735dw NW-FAX" 		= KM-2735w
+"Kyocera ECOSYS M2540dn NW-FAX" 		= KM-2540n
+"Kyocera ECOSYS M5521cdn NW-FAX"  		= KM-5521
+"Kyocera ECOSYS M5521cdw NW-FAX"  		= KM-5521w
+"Kyocera ECOSYS M5526cdn NW-FAX"		= KM-5526
+"Kyocera ECOSYS M5526cdw NW-FAX"		= KM-5526w
+"Kyocera ECOSYS M5525cdn NW-FAX"		= KM-5525
+"Kyocera ECOSYS M5520cdw NW-FAX"		= KM-5520w
+"Kyocera ECOSYS M5520cdn NW-FAX"		= KM-5520
+"Kyocera ECOSYS M4125idn NW-FAX"  		= KM-4125
+"Kyocera ECOSYS M4132idn NW-FAX"		= KM-4132
+"Kyocera ECOSYS M8124cidn NW-FAX"  		= KM-8124
+"Kyocera ECOSYS M8130cidn NW-FAX"		= KM-8130
+"Kyocera ECOSYS M6635cidn NW-FAX"		= KM-6635
+"Kyocera ECOSYS M6630cidn NW-FAX"		= KM-6630
+"Kyocera ECOSYS M3645dn NW-FAX"  		= KM-3645
+"Kyocera ECOSYS M3645idn NW-FAX"		= KM-3645I
+"Kyocera ECOSYS M3655idn NW-FAX"		= KM-3655
+"Kyocera ECOSYS M3660idn NW-FAX"		= KM-3660
+"Kyocera ECOSYS M2735dn NW-FAX"		= KM-2735dn
+"Kyocera ECOSYS M2835dw NW-FAX"		= KM-2835dw
+"Kyocera ECOSYS M3860idnf NW-FAX"  		= KM-3860idnf
+"Kyocera ECOSYS M3860idn NW-FAX"		= KM-3860idn
+[Kyocera.NTamd64.5.1]
+"Kyocera FS-1128MFP NW-FAX"      = FS-1128
+"Kyocera KM-2820 NW-FAX"         = KM-1128
+"Kyocera KM-2560 NW-FAX"         = KM-2560
+"Kyocera KM-3050 NW-FAX"         = KM-3050
+"Kyocera KM-3060 NW-FAX"         = KM-3060
+"Kyocera KM-4050 NW-FAX"         = KM-4050
+"Kyocera KM-5050 NW-FAX"         = KM-5050
+"Kyocera TASKalfa 250ci NW-FAX"  = TA-250CI
+"Kyocera TASKalfa 300ci NW-FAX"  = TA-300CI
+"Kyocera TASKalfa 400ci NW-FAX"  = TA-400CI
+"Kyocera TASKalfa 500ci NW-FAX"  = TA-500CI
+"Kyocera TASKalfa 552ci NW-FAX"  = TA-552CI
+"Kyocera TASKalfa 300i NW-FAX"   = TA-300I
+"Kyocera TASKalfa 420i NW-FAX"   = TA-420I
+"Kyocera TASKalfa 520i NW-FAX"   = TA-520I
+"Kyocera FS-C2126MFP NW-FAX"     = FS-C2126
+"Kyocera FS-3140MFP NW-FAX"      = FS-3140
+"Kyocera TASKalfa 2550ci NW-FAX"  = TA-255CI
+"Kyocera TASKalfa 3050ci NW-FAX"  = TA-305CI
+"Kyocera TASKalfa 3550ci NW-FAX"  = TA-355CI
+"Kyocera TASKalfa 4550ci NW-FAX"  = TA-455CI
+"Kyocera TASKalfa 5550ci NW-FAX"  = TA-555CI
+"Kyocera TASKalfa 5500i NW-FAX"   = TA-5500I
+"Kyocera TASKalfa 4500i NW-FAX"   = TA-4500I
+"Kyocera TASKalfa 3500i NW-FAX"   = TA-3500I
+"Kyocera TASKalfa 7550ci NW-FAX"  = TA-755CI
+"Kyocera TASKalfa 6550ci NW-FAX"  = TA-655CI
+"Kyocera TASKalfa 8000i NW-FAX"   = TA-8000I
+"Kyocera TASKalfa 6500i NW-FAX"   = TA-6500I
+"Kyocera FS-C2626MFP NW-FAX"     = FS-C2626
+"Kyocera FS-C2126MFP+ NW-FAX"     = FS-C2326
+"Kyocera FS-3640MFP NW-FAX"      = FS-3640
+"Kyocera FS-3140MFP+ NW-FAX"      = FS-3340
+"Kyocera FS-1130MFP NW-FAX"  = FS-1130
+"Kyocera FS-1135MFP NW-FAX"  = FS-1135
+"Kyocera FS-C8025MFP NW-FAX"    = FS-8025
+"Kyocera FS-C8020MFP NW-FAX"    = FS-8020
+"Kyocera FS-C8520MFP NW-FAX"  = FS-C8520
+"Kyocera FS-C8525MFP NW-FAX"  = FS-C8525
+"Kyocera TASKalfa 255c NW-FAX"  = FS-8025
+"Kyocera TASKalfa 205c NW-FAX"  = FS-8020
+"Kyocera FS-6030MFP NW-FAX"    = FS-6030
+"Kyocera FS-6025MFP NW-FAX"    = FS-6025
+"Kyocera FS-6525MFP NW-FAX"  = FS-6525
+"Kyocera FS-6530MFP NW-FAX"  = FS-6530
+"Kyocera TASKalfa 305 NW-FAX"  = FS-6030
+"Kyocera TASKalfa 255 NW-FAX"  = FS-6025
+"Kyocera TASKalfa 3051ci NW-FAX"  = TA-3051CI
+"Kyocera TASKalfa 3551ci NW-FAX"  = TA-3551CI
+"Kyocera TASKalfa 4551ci NW-FAX"  = TA-4551CI
+"Kyocera TASKalfa 5551ci NW-FAX"  = TA-5551CI
+"Kyocera TASKalfa 5501i NW-FAX"   = TA-5501I
+"Kyocera TASKalfa 4501i NW-FAX"   = TA-4501I
+"Kyocera TASKalfa 3501i NW-FAX"   = TA-3501I
+"Kyocera TASKalfa 7551ci NW-FAX"  = TA-7551CI
+"Kyocera TASKalfa 6551ci NW-FAX"  = TA-6551CI
+"Kyocera TASKalfa 8001i NW-FAX"   = TA-8001I
+"Kyocera TASKalfa 6501i NW-FAX"   = TA-6501I
+"Kyocera TASKalfa 265ci NW-FAX"  = KM-265CI
+"Kyocera TASKalfa 2551ci NW-FAX"  = TA-2551CI
+"Kyocera TASKalfa 3510i NW-FAX"   = TA-3510I
+"Kyocera TASKalfa 3010i NW-FAX"   = TA-3010I
+"Kyocera TASKalfa 266ci NW-FAX"			= KM-266CI
+"Kyocera TASKalfa 306ci NW-FAX"			= KM-306CI
+"Kyocera TASKalfa 356ci NW-FAX"			= KM-356CI
+"Kyocera TASKalfa 406ci NW-FAX"			= KM-406CI
+"Kyocera TASKalfa 2552ci NW-FAX"  		= KM-2552ci
+"Kyocera TASKalfa 3252ci NW-FAX"  		= KM-3252ci
+"Kyocera TASKalfa 3552ci NW-FAX"  		= KM-3552ci
+"Kyocera TASKalfa 4052ci NW-FAX"		= KM-4052ci
+"Kyocera TASKalfa 5052ci NW-FAX"		= KM-5052ci
+"Kyocera TASKalfa 6052ci NW-FAX"		= KM-6052ci
+"Kyocera TASKalfa 4002i NW-FAX"			= KM-4002i
+"Kyocera TASKalfa 5002i NW-FAX"			= KM-5002i
+"Kyocera TASKalfa 6002i NW-FAX"			= KM-6002i
+"Kyocera TASKalfa 7002i NW-FAX"			= KM-7002i
+"Kyocera TASKalfa 8002i NW-FAX"			= KM-8002i
+"Kyocera TASKalfa 7052ci NW-FAX"  		= KM-7052ci
+"Kyocera TASKalfa 8052ci NW-FAX"  		= KM-8052ci
+"Kyocera TASKalfa 3011i NW-FAX"  		= KM-3011i
+"Kyocera TASKalfa 3511i NW-FAX"  		= KM-3511i
+"Kyocera TASKalfa 308ci NW-FAX"  		= KM-308ci
+"Kyocera TASKalfa 350ci NW-FAX"			= KM-350ci
+"Kyocera TASKalfa 351ci NW-FAX"			= KM-351CI
+"Kyocera TASKalfa 3212i NW-FAX"  		= KM-3212
+"Kyocera TASKalfa 4012i NW-FAX"			= KM-4012
+"Kyocera TASKalfa 2553ci NW-FAX"  		= KM-2553ci
+"Kyocera TASKalfa 3253ci NW-FAX"  		= KM-3253ci
+"Kyocera TASKalfa 3553ci NW-FAX"  		= KM-3553ci
+"Kyocera TASKalfa 4053ci NW-FAX"		= KM-4053ci
+"Kyocera TASKalfa 5053ci NW-FAX"		= KM-5053ci
+"Kyocera TASKalfa 6053ci NW-FAX"		= KM-6053ci
+"Kyocera TASKalfa 4003i NW-FAX"			= KM-4003i
+"Kyocera TASKalfa 5003i NW-FAX"			= KM-5003i
+"Kyocera TASKalfa 6003i NW-FAX"			= KM-6003i
+"Kyocera TASKalfa 307ci NW-FAX"		= KM-307ci
+"Kyocera TASKalfa 9003i NW-FAX"			= KM-9003i
+"Kyocera TASKalfa 7003i NW-FAX"			= KM-7003i
+"Kyocera TASKalfa 8003i NW-FAX"			= KM-8003i
+"Kyocera TASKalfa 9002i NW-FAX"  = KM-9002i
+
+"Kyocera CS-2560 NW-FAX"         = KM-2560
+"Kyocera CS-3050 NW-FAX"         = KM-3050
+"Kyocera CS-3060 NW-FAX"         = KM-3060
+"Kyocera CS-4050 NW-FAX"         = KM-4050
+"Kyocera CS-5050 NW-FAX"         = KM-5050
+"Kyocera CS 250ci NW-FAX"        = TA-250CI
+"Kyocera CS 300ci NW-FAX"        = TA-300CI
+"Kyocera CS 400ci NW-FAX"        = TA-400CI
+"Kyocera CS 500ci NW-FAX"        = TA-500CI
+"Kyocera CS 552ci NW-FAX"        = TA-552CI
+"Kyocera CS 300i NW-FAX"         = TA-300I
+"Kyocera CS 420i NW-FAX"         = TA-420I
+"Kyocera CS 520i NW-FAX"         = TA-520I
+"Kyocera CS 2550ci NW-FAX"  = CS-255CI
+"Kyocera CS 3050ci NW-FAX"  = TA-305CI
+"Kyocera CS 3550ci NW-FAX"  = TA-355CI
+"Kyocera CS 4550ci NW-FAX"  = TA-455CI
+"Kyocera CS 5550ci NW-FAX"  = TA-555CI
+"Kyocera CS 5500i NW-FAX"   = TA-5500I
+"Kyocera CS 4500i NW-FAX"   = TA-4500I
+"Kyocera CS 3500i NW-FAX"   = TA-3500I
+"Kyocera CS 7550ci NW-FAX"  = TA-755CI
+"Kyocera CS 6550ci NW-FAX"  = TA-655CI
+"Kyocera CS 8000i NW-FAX"   = TA-8000I
+"Kyocera CS 6500i NW-FAX"   = TA-6500I
+"Kyocera CS 255c NW-FAX"        = FS-8025
+"Kyocera CS 205c NW-FAX"        = FS-8020
+"Kyocera CS 305 NW-FAX"        = FS-6030
+"Kyocera CS 255 NW-FAX"        = FS-6025
+"Kyocera CS 3051ci NW-FAX"  = TA-3051CI
+"Kyocera CS 3551ci NW-FAX"  = TA-3551CI
+"Kyocera CS 4551ci NW-FAX"  = TA-4551CI
+"Kyocera CS 5551ci NW-FAX"  = TA-5551CI
+"Kyocera CS 5501i NW-FAX"   = TA-5501I
+"Kyocera CS 4501i NW-FAX"   = TA-4501I
+"Kyocera CS 3501i NW-FAX"   = TA-3501I
+"Kyocera CS 7551ci NW-FAX"  = TA-7551CI
+"Kyocera CS 6551ci NW-FAX"  = TA-6551CI
+"Kyocera CS 8001i NW-FAX"   = TA-8001I
+"Kyocera CS 6501i NW-FAX"   = TA-6501I
+"Kyocera CS 2551ci NW-FAX"  = TA-2551CI
+"Kyocera CS 3510i NW-FAX"  = TA-3510I
+"Kyocera CS 3010i NW-FAX"  = TA-3010I
+"Kyocera CS 306ci NW-FAX"			= KM-306CI
+"Kyocera CS 356ci NW-FAX"			= KM-356CI
+"Kyocera CS 406ci NW-FAX"			= KM-406CI
+"Kyocera CS 2552ci NW-FAX"		  		= KM-2552ci
+"Kyocera CS 3252ci NW-FAX"	 	 		= KM-3252ci
+"Kyocera CS 3552ci NW-FAX"	 	 		= KM-3552ci
+"Kyocera CS 4052ci NW-FAX"				= KM-4052ci
+"Kyocera CS 5052ci NW-FAX"				= KM-5052ci
+"Kyocera CS 6052ci NW-FAX"				= KM-6052ci
+"Kyocera CS 4002i NW-FAX"				= KM-4002i
+"Kyocera CS 5002i NW-FAX"				= KM-5002i
+"Kyocera CS 6002i NW-FAX"				= KM-6002i
+"Kyocera CS 7002i NW-FAX"				= KM-7002i
+"Kyocera CS 8002i NW-FAX"				= KM-8002i
+"Kyocera CS 7052ci NW-FAX"  			= KM-7052ci
+"Kyocera CS 8052ci NW-FAX"  			= KM-8052ci
+"Kyocera CS 3011i NW-FAX"				= KM-3011i
+"Kyocera CS 3511i NW-FAX"  				= KM-3511i
+"Kyocera CS 308ci NW-FAX"		  		= KM-308ci
+"Kyocera CS 3212i NW-FAX"  				= KM-3212
+"Kyocera CS 4012i NW-FAX"				= KM-4012
+"Kyocera CS 2553ci NW-FAX"		  		= KM-2553ci
+"Kyocera CS 3253ci NW-FAX"	 	 		= KM-3253ci
+"Kyocera CS 3553ci NW-FAX"	 	 		= KM-3553ci
+"Kyocera CS 4053ci NW-FAX"				= KM-4053ci
+"Kyocera CS 5053ci NW-FAX"				= KM-5053ci
+"Kyocera CS 6053ci NW-FAX"				= KM-6053ci
+"Kyocera CS 4003i NW-FAX"				= KM-4003i
+"Kyocera CS 5003i NW-FAX"				= KM-5003i
+"Kyocera CS 6003i NW-FAX"				= KM-6003i
+"Kyocera CS 307ci NW-FAX"		= KM-307ci
+"Kyocera CS 9003i NW-FAX"				= KM-9003i
+"Kyocera CS 7003i NW-FAX"				= KM-7003i
+"Kyocera CS 8003i NW-FAX"				= KM-8003i
+"Kyocera CS 9002i NW-FAX"         = KM-9002i
+
+"Kyocera ECOSYS M3540dn NW-FAX"  = KM3540
+"Kyocera ECOSYS M3540idn NW-FAX"  = KM3540I
+"Kyocera ECOSYS M3550idn NW-FAX"   = KM3550I
+"Kyocera ECOSYS M3560idn NW-FAX"   = KM3560I
+"Kyocera ECOSYS M2530dn NW-FAX"  		= KM-2530
+"Kyocera ECOSYS M2535dn NW-FAX"  		= KM-2535
+"Kyocera ECOSYS M6526cdn NW-FAX" 		= KM-6526
+"Kyocera ECOSYS M6526cdn Type B NW-FAX" = KM-6526
+"Kyocera ECOSYS M6526cidn NW-FAX"		= KM-6526H
+"Kyocera ECOSYS M6526cidn Type B NW-FAX"= KM-6526H
+"Kyocera ECOSYS M6530cdn NW-FAX"		= KM-6530
+"Kyocera ECOSYS M6535cidn NW-FAX"		= KM-6535
+"Kyocera ECOSYS M2635dn NW-FAX"  		= KM-2635n
+"Kyocera ECOSYS M2635dw NW-FAX"  		= KM-2635w
+"Kyocera ECOSYS M2540dw NW-FAX" 		= KM-2540w
+"Kyocera ECOSYS M2640idw NW-FAX" 		= KM-2640iw
+"Kyocera ECOSYS M2735dw NW-FAX" 		= KM-2735w
+"Kyocera ECOSYS M2540dn NW-FAX" 		= KM-2540n
+"Kyocera ECOSYS M5521cdn NW-FAX"  		= KM-5521
+"Kyocera ECOSYS M5521cdw NW-FAX"  		= KM-5521w
+"Kyocera ECOSYS M5526cdn NW-FAX"		= KM-5526
+"Kyocera ECOSYS M5526cdw NW-FAX"		= KM-5526w
+"Kyocera ECOSYS M5525cdn NW-FAX"		= KM-5525
+"Kyocera ECOSYS M5520cdw NW-FAX"		= KM-5520w
+"Kyocera ECOSYS M5520cdn NW-FAX"		= KM-5520
+"Kyocera ECOSYS M4125idn NW-FAX"  		= KM-4125
+"Kyocera ECOSYS M4132idn NW-FAX"		= KM-4132
+"Kyocera ECOSYS M8124cidn NW-FAX"  		= KM-8124
+"Kyocera ECOSYS M8130cidn NW-FAX"		= KM-8130
+"Kyocera ECOSYS M6635cidn NW-FAX"		= KM-6635
+"Kyocera ECOSYS M6630cidn NW-FAX"		= KM-6630
+"Kyocera ECOSYS M3645dn NW-FAX"  		= KM-3645
+"Kyocera ECOSYS M3645idn NW-FAX"		= KM-3645I
+"Kyocera ECOSYS M3655idn NW-FAX"		= KM-3655
+"Kyocera ECOSYS M3660idn NW-FAX"		= KM-3660
+"Kyocera ECOSYS M2735dn NW-FAX"		= KM-2735dn
+"Kyocera ECOSYS M2835dw NW-FAX"		= KM-2835dw
+"Kyocera ECOSYS M3860idnf NW-FAX"  		= KM-3860idnf
+"Kyocera ECOSYS M3860idn NW-FAX"		= KM-3860idn
+[Kyocera.NTamd64.6.0]
+"Kyocera FS-1128MFP NW-FAX"      = FS-1128
+"Kyocera KM-2820 NW-FAX"         = KM-1128
+"Kyocera KM-2560 NW-FAX"         = KM-2560
+"Kyocera KM-3050 NW-FAX"         = KM-3050
+"Kyocera KM-3060 NW-FAX"         = KM-3060
+"Kyocera KM-4050 NW-FAX"         = KM-4050
+"Kyocera KM-5050 NW-FAX"         = KM-5050
+"Kyocera TASKalfa 250ci NW-FAX"  = TA-250CI
+"Kyocera TASKalfa 300ci NW-FAX"  = TA-300CI
+"Kyocera TASKalfa 400ci NW-FAX"  = TA-400CI
+"Kyocera TASKalfa 500ci NW-FAX"  = TA-500CI
+"Kyocera TASKalfa 552ci NW-FAX"  = TA-552CI
+"Kyocera TASKalfa 300i NW-FAX"   = TA-300I
+"Kyocera TASKalfa 420i NW-FAX"   = TA-420I
+"Kyocera TASKalfa 520i NW-FAX"   = TA-520I
+"Kyocera FS-C2126MFP NW-FAX"     = FS-C2126
+"Kyocera FS-3140MFP NW-FAX"      = FS-3140
+"Kyocera TASKalfa 2550ci NW-FAX"  = TA-255CI
+"Kyocera TASKalfa 3050ci NW-FAX"  = TA-305CI
+"Kyocera TASKalfa 3550ci NW-FAX"  = TA-355CI
+"Kyocera TASKalfa 4550ci NW-FAX"  = TA-455CI
+"Kyocera TASKalfa 5550ci NW-FAX"  = TA-555CI
+"Kyocera TASKalfa 5500i NW-FAX"   = TA-5500I
+"Kyocera TASKalfa 4500i NW-FAX"   = TA-4500I
+"Kyocera TASKalfa 3500i NW-FAX"   = TA-3500I
+"Kyocera TASKalfa 7550ci NW-FAX"  = TA-755CI
+"Kyocera TASKalfa 6550ci NW-FAX"  = TA-655CI
+"Kyocera TASKalfa 8000i NW-FAX"   = TA-8000I
+"Kyocera TASKalfa 6500i NW-FAX"   = TA-6500I
+"Kyocera FS-C2626MFP NW-FAX"     = FS-C2626
+"Kyocera FS-C2126MFP+ NW-FAX"     = FS-C2326
+"Kyocera FS-3640MFP NW-FAX"      = FS-3640
+"Kyocera FS-3140MFP+ NW-FAX"      = FS-3340
+"Kyocera FS-1130MFP NW-FAX"  = FS-1130
+"Kyocera FS-1135MFP NW-FAX"  = FS-1135
+"Kyocera FS-C8025MFP NW-FAX"    = FS-8025
+"Kyocera FS-C8020MFP NW-FAX"    = FS-8020
+"Kyocera FS-C8520MFP NW-FAX"  = FS-C8520
+"Kyocera FS-C8525MFP NW-FAX"  = FS-C8525
+"Kyocera TASKalfa 255c NW-FAX"  = FS-8025
+"Kyocera TASKalfa 205c NW-FAX"  = FS-8020
+"Kyocera FS-6030MFP NW-FAX"    = FS-6030
+"Kyocera FS-6025MFP NW-FAX"    = FS-6025
+"Kyocera FS-6525MFP NW-FAX"  = FS-6525
+"Kyocera FS-6530MFP NW-FAX"  = FS-6530
+"Kyocera TASKalfa 305 NW-FAX"  = FS-6030
+"Kyocera TASKalfa 255 NW-FAX"  = FS-6025
+"Kyocera TASKalfa 3051ci NW-FAX"  = TA-3051CI
+"Kyocera TASKalfa 3551ci NW-FAX"  = TA-3551CI
+"Kyocera TASKalfa 4551ci NW-FAX"  = TA-4551CI
+"Kyocera TASKalfa 5551ci NW-FAX"  = TA-5551CI
+"Kyocera TASKalfa 5501i NW-FAX"   = TA-5501I
+"Kyocera TASKalfa 4501i NW-FAX"   = TA-4501I
+"Kyocera TASKalfa 3501i NW-FAX"   = TA-3501I
+"Kyocera TASKalfa 7551ci NW-FAX"  = TA-7551CI
+"Kyocera TASKalfa 6551ci NW-FAX"  = TA-6551CI
+"Kyocera TASKalfa 8001i NW-FAX"   = TA-8001I
+"Kyocera TASKalfa 6501i NW-FAX"   = TA-6501I
+"Kyocera TASKalfa 265ci NW-FAX"  = KM-265CI
+"Kyocera TASKalfa 2551ci NW-FAX"  = TA-2551CI
+"Kyocera TASKalfa 3510i NW-FAX"   = TA-3510I
+"Kyocera TASKalfa 3010i NW-FAX"   = TA-3010I
+"Kyocera TASKalfa 266ci NW-FAX"			= KM-266CI
+"Kyocera TASKalfa 306ci NW-FAX"			= KM-306CI
+"Kyocera TASKalfa 356ci NW-FAX"			= KM-356CI
+"Kyocera TASKalfa 406ci NW-FAX"			= KM-406CI
+"Kyocera TASKalfa 2552ci NW-FAX"  		= KM-2552ci
+"Kyocera TASKalfa 3252ci NW-FAX"  		= KM-3252ci
+"Kyocera TASKalfa 3552ci NW-FAX"  		= KM-3552ci
+"Kyocera TASKalfa 4052ci NW-FAX"		= KM-4052ci
+"Kyocera TASKalfa 5052ci NW-FAX"		= KM-5052ci
+"Kyocera TASKalfa 6052ci NW-FAX"		= KM-6052ci
+"Kyocera TASKalfa 4002i NW-FAX"			= KM-4002i
+"Kyocera TASKalfa 5002i NW-FAX"			= KM-5002i
+"Kyocera TASKalfa 6002i NW-FAX"			= KM-6002i
+"Kyocera TASKalfa 7002i NW-FAX"			= KM-7002i
+"Kyocera TASKalfa 8002i NW-FAX"			= KM-8002i
+"Kyocera TASKalfa 7052ci NW-FAX"  		= KM-7052ci
+"Kyocera TASKalfa 8052ci NW-FAX"  		= KM-8052ci
+"Kyocera TASKalfa 3011i NW-FAX"  		= KM-3011i
+"Kyocera TASKalfa 3511i NW-FAX"  		= KM-3511i
+"Kyocera TASKalfa 308ci NW-FAX"  		= KM-308ci
+"Kyocera TASKalfa 350ci NW-FAX"			= KM-350ci
+"Kyocera TASKalfa 351ci NW-FAX"			= KM-351CI
+"Kyocera TASKalfa 3212i NW-FAX"  		= KM-3212
+"Kyocera TASKalfa 4012i NW-FAX"			= KM-4012
+"Kyocera TASKalfa 2553ci NW-FAX"  		= KM-2553ci
+"Kyocera TASKalfa 3253ci NW-FAX"  		= KM-3253ci
+"Kyocera TASKalfa 3553ci NW-FAX"  		= KM-3553ci
+"Kyocera TASKalfa 4053ci NW-FAX"		= KM-4053ci
+"Kyocera TASKalfa 5053ci NW-FAX"		= KM-5053ci
+"Kyocera TASKalfa 6053ci NW-FAX"		= KM-6053ci
+"Kyocera TASKalfa 4003i NW-FAX"			= KM-4003i
+"Kyocera TASKalfa 5003i NW-FAX"			= KM-5003i
+"Kyocera TASKalfa 6003i NW-FAX"			= KM-6003i
+"Kyocera TASKalfa 307ci NW-FAX"		= KM-307ci
+"Kyocera TASKalfa 9003i NW-FAX"			= KM-9003i
+"Kyocera TASKalfa 7003i NW-FAX"			= KM-7003i
+"Kyocera TASKalfa 8003i NW-FAX"			= KM-8003i
+"Kyocera TASKalfa 9002i NW-FAX"  = KM-9002i
+
+
+"Kyocera CS-2560 NW-FAX"         = KM-2560
+"Kyocera CS-3050 NW-FAX"         = KM-3050
+"Kyocera CS-3060 NW-FAX"         = KM-3060
+"Kyocera CS-4050 NW-FAX"         = KM-4050
+"Kyocera CS-5050 NW-FAX"         = KM-5050
+"Kyocera CS 250ci NW-FAX"        = TA-250CI
+"Kyocera CS 300ci NW-FAX"        = TA-300CI
+"Kyocera CS 400ci NW-FAX"        = TA-400CI
+"Kyocera CS 500ci NW-FAX"        = TA-500CI
+"Kyocera CS 552ci NW-FAX"        = TA-552CI
+"Kyocera CS 300i NW-FAX"         = TA-300I
+"Kyocera CS 420i NW-FAX"         = TA-420I
+"Kyocera CS 520i NW-FAX"         = TA-520I
+"Kyocera CS 2550ci NW-FAX"  = CS-255CI
+"Kyocera CS 3050ci NW-FAX"  = TA-305CI
+"Kyocera CS 3550ci NW-FAX"  = TA-355CI
+"Kyocera CS 4550ci NW-FAX"  = TA-455CI
+"Kyocera CS 5550ci NW-FAX"  = TA-555CI
+"Kyocera CS 5500i NW-FAX"   = TA-5500I
+"Kyocera CS 4500i NW-FAX"   = TA-4500I
+"Kyocera CS 3500i NW-FAX"   = TA-3500I
+"Kyocera CS 7550ci NW-FAX"  = TA-755CI
+"Kyocera CS 6550ci NW-FAX"  = TA-655CI
+"Kyocera CS 8000i NW-FAX"   = TA-8000I
+"Kyocera CS 6500i NW-FAX"   = TA-6500I
+"Kyocera CS 255c NW-FAX"        = FS-8025
+"Kyocera CS 205c NW-FAX"        = FS-8020
+"Kyocera CS 305 NW-FAX"        = FS-6030
+"Kyocera CS 255 NW-FAX"        = FS-6025
+"Kyocera CS 3051ci NW-FAX"  = TA-3051CI
+"Kyocera CS 3551ci NW-FAX"  = TA-3551CI
+"Kyocera CS 4551ci NW-FAX"  = TA-4551CI
+"Kyocera CS 5551ci NW-FAX"  = TA-5551CI
+"Kyocera CS 5501i NW-FAX"   = TA-5501I
+"Kyocera CS 4501i NW-FAX"   = TA-4501I
+"Kyocera CS 3501i NW-FAX"   = TA-3501I
+"Kyocera CS 7551ci NW-FAX"  = TA-7551CI
+"Kyocera CS 6551ci NW-FAX"  = TA-6551CI
+"Kyocera CS 8001i NW-FAX"   = TA-8001I
+"Kyocera CS 6501i NW-FAX"   = TA-6501I
+"Kyocera CS 2551ci NW-FAX"  = TA-2551CI
+"Kyocera CS 3510i NW-FAX"  = TA-3510I
+"Kyocera CS 3010i NW-FAX"  = TA-3010I
+"Kyocera CS 306ci NW-FAX"			= KM-306CI
+"Kyocera CS 356ci NW-FAX"			= KM-356CI
+"Kyocera CS 406ci NW-FAX"			= KM-406CI
+"Kyocera CS 2552ci NW-FAX"		  		= KM-2552ci
+"Kyocera CS 3252ci NW-FAX"	 	 		= KM-3252ci
+"Kyocera CS 3552ci NW-FAX"	 	 		= KM-3552ci
+"Kyocera CS 4052ci NW-FAX"				= KM-4052ci
+"Kyocera CS 5052ci NW-FAX"				= KM-5052ci
+"Kyocera CS 6052ci NW-FAX"				= KM-6052ci
+"Kyocera CS 4002i NW-FAX"				= KM-4002i
+"Kyocera CS 5002i NW-FAX"				= KM-5002i
+"Kyocera CS 6002i NW-FAX"				= KM-6002i
+"Kyocera CS 7002i NW-FAX"				= KM-7002i
+"Kyocera CS 8002i NW-FAX"				= KM-8002i
+"Kyocera CS 7052ci NW-FAX"  			= KM-7052ci
+"Kyocera CS 8052ci NW-FAX"  			= KM-8052ci
+"Kyocera CS 3011i NW-FAX"				= KM-3011i
+"Kyocera CS 3511i NW-FAX"  				= KM-3511i
+"Kyocera CS 308ci NW-FAX"		  		= KM-308ci
+"Kyocera CS 3212i NW-FAX"  				= KM-3212
+"Kyocera CS 4012i NW-FAX"				= KM-4012
+"Kyocera CS 2553ci NW-FAX"		  		= KM-2553ci
+"Kyocera CS 3253ci NW-FAX"	 	 		= KM-3253ci
+"Kyocera CS 3553ci NW-FAX"	 	 		= KM-3553ci
+"Kyocera CS 4053ci NW-FAX"				= KM-4053ci
+"Kyocera CS 5053ci NW-FAX"				= KM-5053ci
+"Kyocera CS 6053ci NW-FAX"				= KM-6053ci
+"Kyocera CS 4003i NW-FAX"				= KM-4003i
+"Kyocera CS 5003i NW-FAX"				= KM-5003i
+"Kyocera CS 6003i NW-FAX"				= KM-6003i
+"Kyocera CS 307ci NW-FAX"		= KM-307ci
+"Kyocera CS 9003i NW-FAX"				= KM-9003i
+"Kyocera CS 7003i NW-FAX"				= KM-7003i
+"Kyocera CS 8003i NW-FAX"				= KM-8003i
+"Kyocera CS 9002i NW-FAX"         = KM-9002i
+
+"Kyocera ECOSYS M3540dn NW-FAX"  = KM3540
+"Kyocera ECOSYS M3540idn NW-FAX"  = KM3540I
+"Kyocera ECOSYS M3550idn NW-FAX"   = KM3550I
+"Kyocera ECOSYS M3560idn NW-FAX"   = KM3560I
+"Kyocera ECOSYS M2530dn NW-FAX"  		= KM-2530
+"Kyocera ECOSYS M2535dn NW-FAX"  		= KM-2535
+"Kyocera ECOSYS M6526cdn NW-FAX" 		= KM-6526
+"Kyocera ECOSYS M6526cdn Type B NW-FAX" = KM-6526
+"Kyocera ECOSYS M6526cidn NW-FAX"		= KM-6526H
+"Kyocera ECOSYS M6526cidn Type B NW-FAX"= KM-6526H
+"Kyocera ECOSYS M6530cdn NW-FAX"		= KM-6530
+"Kyocera ECOSYS M6535cidn NW-FAX"		= KM-6535
+"Kyocera ECOSYS M2635dn NW-FAX"  		= KM-2635n
+"Kyocera ECOSYS M2635dw NW-FAX"  		= KM-2635w
+"Kyocera ECOSYS M2540dw NW-FAX" 		= KM-2540w
+"Kyocera ECOSYS M2640idw NW-FAX" 		= KM-2640iw
+"Kyocera ECOSYS M2735dw NW-FAX" 		= KM-2735w
+"Kyocera ECOSYS M2540dn NW-FAX" 		= KM-2540n
+"Kyocera ECOSYS M5521cdn NW-FAX"  		= KM-5521
+"Kyocera ECOSYS M5521cdw NW-FAX"  		= KM-5521w
+"Kyocera ECOSYS M5526cdn NW-FAX"		= KM-5526
+"Kyocera ECOSYS M5526cdw NW-FAX"		= KM-5526w
+"Kyocera ECOSYS M5525cdn NW-FAX"		= KM-5525
+"Kyocera ECOSYS M5520cdw NW-FAX"		= KM-5520w
+"Kyocera ECOSYS M5520cdn NW-FAX"		= KM-5520
+"Kyocera ECOSYS M4125idn NW-FAX"  		= KM-4125
+"Kyocera ECOSYS M4132idn NW-FAX"		= KM-4132
+"Kyocera ECOSYS M8124cidn NW-FAX"  		= KM-8124
+"Kyocera ECOSYS M8130cidn NW-FAX"		= KM-8130
+"Kyocera ECOSYS M6635cidn NW-FAX"		= KM-6635
+"Kyocera ECOSYS M6630cidn NW-FAX"		= KM-6630
+"Kyocera ECOSYS M3645dn NW-FAX"  		= KM-3645
+"Kyocera ECOSYS M3645idn NW-FAX"		= KM-3645I
+"Kyocera ECOSYS M3655idn NW-FAX"		= KM-3655
+"Kyocera ECOSYS M3660idn NW-FAX"		= KM-3660
+"Kyocera ECOSYS M2735dn NW-FAX"		= KM-2735dn
+"Kyocera ECOSYS M2835dw NW-FAX"		= KM-2835dw
+"Kyocera ECOSYS M3860idnf NW-FAX"  		= KM-3860idnf
+"Kyocera ECOSYS M3860idn NW-FAX"		= KM-3860idn
+;----------------------------------------------------------------
+; Install Sections for 64bit OS
+;----------------------------------------------------------------
+[KM-2560]
+CopyFiles       = @KFK02010.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK02010.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3060]
+CopyFiles       = @KFK02110.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK02110.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3050]
+CopyFiles       = @KFK01610.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK01610.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-4050]
+CopyFiles       = @KFK01710.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK01710.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5050]
+CopyFiles       = @KFK01810.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK01810.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-250CI]
+CopyFiles       = @KFK04110.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK04110.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-300CI]
+CopyFiles       = @KFK04210.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK04210.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-400CI]
+CopyFiles       = @KFK04310.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK04310.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-500CI]
+CopyFiles       = @KFK04410.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK04410.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-552CI]
+CopyFiles       = @KFK05310.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK05310.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-300I]
+CopyFiles       = @KFF05210.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF05210.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-420I]
+CopyFiles       = @KFF05010.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF05010.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-520I]
+CopyFiles       = @KFF05110.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF05110.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-1128]
+CopyFiles       = @KFF04910.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF04910.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-1128]
+CopyFiles       = @KFK04910.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK04910.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-C2126]
+CopyFiles       = @KFF05410.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF05410.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-3140]
+CopyFiles       = @KFF05510.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF05510.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-305CI]
+CopyFiles       = @KFK06310.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK06310.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-355CI]
+CopyFiles       = @KFK06210.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK06210.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-455CI]
+CopyFiles       = @KFK06110.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK06110.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-555CI]
+CopyFiles       = @KFK06010.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK06010.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-5500I]
+CopyFiles       = @KFK06410.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK06410.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-4500I]
+CopyFiles       = @KFK06510.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK06510.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-3500I]
+CopyFiles       = @KFK06610.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK06610.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-755CI]
+CopyFiles       = @KFK06710.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK06710.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-655CI]
+CopyFiles       = @KFK06810.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK06810.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-8000I]
+CopyFiles       = @KFK06910.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK06910.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-6500I]
+CopyFiles       = @KFK07010.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK07010.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-C2626]
+CopyFiles       = @KFK07110.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK07110.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-C2326]
+CopyFiles       = @KFK07210.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK07210.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-3640]
+CopyFiles       = @KFK07310.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK07310.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-3340]
+CopyFiles       = @KFK07410.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFK07410.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-1130]
+CopyFiles       = @KFF07510.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF07510.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-1135]
+CopyFiles       = @KFF07610.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF07610.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-6030]
+CopyFiles       = @KFF05610.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF05610.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-6025]
+CopyFiles       = @KFF05710.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF05710.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-8025]
+CopyFiles       = @KFF05810.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF05810.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-8020]
+CopyFiles       = @KFF05910.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF05910.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-255CI]
+CopyFiles       = @KFF07710.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF07710.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[CS-255CI]
+CopyFiles       = @KFF07710.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF07710.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-6525]
+CopyFiles       = @KFF07810.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF07810.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-6530]
+CopyFiles       = @KFF07910.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF07910.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-C8520]
+CopyFiles       = @KFF08010.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF08010.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[FS-C8525]
+CopyFiles       = @KFF08110.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF08110.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-3051CI]
+CopyFiles       = @KFF09510.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09510.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-3551CI]
+CopyFiles       = @KFF09610.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09610.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-4551CI]
+CopyFiles       = @KFF09710.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09710.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-5551CI]
+CopyFiles       = @KFF09810.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09810.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-5501I]
+CopyFiles       = @KFF09210.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09210.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-4501I]
+CopyFiles       = @KFF09110.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09110.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-3501I]
+CopyFiles       = @KFF09010.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09010.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-7551CI]
+CopyFiles       = @KFF10010.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10010.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-6551CI]
+CopyFiles       = @KFF09910.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09910.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-8001I]
+CopyFiles       = @KFF09410.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09410.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-6501I]
+CopyFiles       = @KFF09310.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09310.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-2551CI]
+CopyFiles       = @KFF10110.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10110.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-3510I]
+CopyFiles       = @KFF10210.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10210.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[TA-3010I]
+CopyFiles       = @KFF10310.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10310.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM3540]
+CopyFiles       = @KFF11110.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF11110.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM3540I]
+CopyFiles       = @KFF11310.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF11310.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM3550I]
+CopyFiles       = @KFF11410.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF11410.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM3560I]
+CopyFiles       = @KFF11510.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF11510.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-265CI]
+CopyFiles       = @KMC265NF.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KMC265NF.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-2530]
+CopyFiles       = @KFF11910.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF11910.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-2535]
+CopyFiles       = @KFF12110.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF12110.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-6526H]
+CopyFiles       = @KFF12510.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF12510.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-6526]
+CopyFiles       = @KFF12710.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF12710.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-266CI]		
+CopyFiles 		= @KFF08810.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF08810.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-6530]
+CopyFiles       = @KFF13610.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF13610.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-6535]		
+CopyFiles 		= @KFF13810.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF13810.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-306CI]
+CopyFiles 		= @KFF08910.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF08910.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-356CI]
+CopyFiles 		= @KFF09010P.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09010P.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-406CI]
+CopyFiles 		= @KFF09110P.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09110P.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+		 
+[KM-2552ci]
+CopyFiles       = @KFF09220.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09220.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3252ci]
+CopyFiles       = @KFF09320.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09320.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3552ci]
+CopyFiles       = @KFF10620.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10620.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-4052ci]
+CopyFiles       = @KFF09420.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09420.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5052ci]
+CopyFiles       = @KFF09520.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09520.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-6052ci]
+CopyFiles       = @KFF09620.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09620.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-4002i]
+CopyFiles       = @KFF10120.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10120.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5002i]
+CopyFiles       = @KFF10220.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10220.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-6002i]
+CopyFiles       = @KFF10320.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10320.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-7002i]
+CopyFiles       = @KFF10420.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10420.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-8002i]
+CopyFiles       = @KFF10520.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10520.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-7052ci]
+CopyFiles       = @KFF09720.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09720.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-8052ci]
+CopyFiles       = @KFF09820.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09820.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3011i]
+CopyFiles       = @KFF09920.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09920.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3511i]
+CopyFiles       = @KFF10020.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10020.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-2635n]
+CopyFiles       = @KFF15210.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF15210.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-2635w]
+CopyFiles       = @KFF15310.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF15310.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-2540w]
+CopyFiles       = @KFF15510.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF15510.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+				 
+[KM-2640iw]
+CopyFiles       = @KFF15610.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF15610.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-2735w]
+CopyFiles       = @KFF15810.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF15810.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-2540n]
+CopyFiles       = @KFF15910.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF15910.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5521]
+CopyFiles       = @KFF14410.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF14410.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5521w]
+CopyFiles       = @KFF14310.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF14310.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5526]
+CopyFiles       = @KFF14610.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF14610.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5526w]
+CopyFiles       = @KFF14510.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF14510.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5525]
+CopyFiles       = @KFF16610.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF16610.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5520w]
+CopyFiles       = @KFF16410.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF16410.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5520]
+CopyFiles       = @KFF16510.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF16510.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-4125]
+CopyFiles       = @KFF16920.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF16920.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-4132]
+CopyFiles       = @KFF17020.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF17020.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-8124]
+CopyFiles       = @KFF17920.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF17920.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-8130]
+CopyFiles       = @KFF17820.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF17820.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-308ci]
+CopyFiles       = @KFF12520.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF12520.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-6635]
+CopyFiles       = @KFF18820.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF18820.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-6630]
+CopyFiles       = @KFF18620.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF18620.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-351CI]
+CopyFiles       = @KFF11220.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF11220.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3645]
+CopyFiles       = @KFF19420.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF19420.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3645I]
+CopyFiles       = @KFF19220.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF19220.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3655]
+CopyFiles       = @KFF19120.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF19120.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3660]
+CopyFiles       = @KFF19020.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF19020.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-350ci]
+CopyFiles       = @KFF18920.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF18920.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3212]
+CopyFiles       = @KFF11120.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF11120.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-4012]
+CopyFiles       = @KFF11020.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF11020.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-2735dn]
+CopyFiles       = @KFF20120.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF20120.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-2835dw]
+CopyFiles       = @KFF20220.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF20220.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-2553ci]
+CopyFiles       = @KFF09230.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09230.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3253ci]
+CopyFiles       = @KFF09330.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09330.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3553ci]
+CopyFiles       = @KFF10630.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10630.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-4053ci]
+CopyFiles       = @KFF09430.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09430.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5053ci]
+CopyFiles       = @KFF09530.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09530.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-6053ci]
+CopyFiles       = @KFF09630.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF09630.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-4003i]
+CopyFiles       = @KFF10130.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10130.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-5003i]
+CopyFiles       = @KFF10230.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10230.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-6003i]
+CopyFiles       = @KFF10330.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10330.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-307ci]
+CopyFiles       = @KFF10720.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10720.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3860idnf]
+CopyFiles       = @KFF21220.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF21220.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-3860idn]
+CopyFiles       = @KFF21320.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF21320.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-9003i]
+CopyFiles       = @KFF12720.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF12720.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-7003i]
+CopyFiles       = @KFF12920.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF12920.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-8003i]
+CopyFiles       = @KFF12820.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF12820.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+
+[KM-9002i]
+CopyFiles       = @KFF10530.MDX,WINXP,SPOOLER,ADRIF3,ADREDIT,HELP,ADREDIT_HELP
+DataFile        = KFF10530.MDX
+DataSection     = XPCORE
+AddReg          = FAX_ADDREG
+;----------------------------------------------------------------
+; Copy Sections
+;----------------------------------------------------------------
+
+; This should be used for NT User Mode Driver
+[WINXP]
+KFUC70A2.DLL
+KFUU70A2.DLL
+;KFRG70A2.DLL
+KFRF70A2.DLL
+KFRC70A2.DLL
+KFFA70A2.DLL
+KFFL70A2.DLL
+KFFX70A2.DLL
+;KCMV3D.INI
+
+[SPOOLER]
+KFM70A2.EXE
+KFR70A2.DLL
+NWFX70A2.INI
+KMPipe.dll
+KMPipe64.dll
+KMADRWS2.DLL
+
+[ADRIF3]
+KMADRIF3.DLL
+KMWAB.DLL
+KMDVLIT2.DLL
+KMSNMP2.DLL
+KMSNMP2.INI
+[ADRIF]
+KMADRIF.DLL
+KMWAB.DLL
+KMDVLITE.DLL
+KMSNMP.DLL
+KMSNMP.INI
+
+[ADREDIT]
+KFNMCPEDIT.DLL
+KFNMCPEDRES.DLL
+KFCPDEF.ini
+KFCPJA01.cpf
+KFCPJA02.cpf
+KFCPJA03.cpf
+KFCPJA04.cpf
+KFCPJA05.cpf
+KFCPJA06.cpf
+KFCPEN01.cpf
+KFCPEN02.cpf
+KFCPEN03.cpf
+KFCPEN04.cpf
+KFCPEN05.cpf
+KFCPFR01.cpf
+KFCPFR02.cpf
+KFCPFR03.cpf
+KFCPFR04.cpf
+KFCPFR05.cpf
+KFCPGE01.cpf
+KFCPGE02.cpf
+KFCPGE03.cpf
+KFCPGE04.cpf
+KFCPGE05.cpf
+KFCPIT01.cpf
+KFCPIT02.cpf
+KFCPIT03.cpf
+KFCPIT04.cpf
+KFCPIT05.cpf
+KFCPSP01.cpf
+KFCPSP02.cpf
+KFCPSP03.cpf
+KFCPSP04.cpf
+KFCPSP05.cpf
+KFCPSC01.cpf
+KFCPSC02.cpf
+KFCPSC03.cpf
+KFCPSC04.cpf
+KFCPSC05.cpf
+KFCPTC01.cpf
+KFCPTC02.cpf
+KFCPTC03.cpf
+KFCPTC04.cpf
+KFCPTC05.cpf
+KFCPKO01.cpf
+KFCPKO02.cpf
+KFCPKO03.cpf
+KFCPKO04.cpf
+KFCPKO05.cpf
+
+[HELP]
+KFHENG20.CHM
+KFHCAT20.CHM
+KFHFRE20.CHM
+KFHGER20.CHM
+KFHITA20.CHM
+KFHSPA20.CHM
+KFHJPN20.CHM
+KFHKRE20.CHM
+KFHSCH20.CHM
+KFHTCH20.CHM
+KFHBRA20.CHM
+KFHCZE20.CHM
+KFHDAN20.CHM
+KFHDUT20.CHM
+KFHFIN20.CHM
+KFHHUN20.CHM
+KFHNOR20.CHM
+KFHPOL20.CHM
+KFHPOR20.CHM
+KFHRUS20.CHM
+KFHSWE20.CHM
+KFHTUR20.CHM
+KFHARA20.CHM
+KFHHEB20.CHM
+
+[ADREDIT_HELP]
+KFCPENG1.CHM
+KFCPCAT1.CHM
+KFCPFRE1.CHM
+KFCPGER1.CHM
+KFCPITA1.CHM
+KFCPSPA1.CHM
+KFCPJPN1.CHM
+KFCPKRE1.CHM
+KFCPSCH1.CHM
+KFCPTCH1.CHM
+KFCPBRA1.CHM
+KFCPCZE1.CHM
+KFCPDAN1.CHM
+KFCPDUT1.CHM
+KFCPFIN1.CHM
+KFCPHUN1.CHM
+KFCPNOR1.CHM
+KFCPPOL1.CHM
+KFCPPOR1.CHM
+KFCPRUS1.CHM
+KFCPSWE1.CHM
+KFCPTUR1.CHM
+KFCPARA1.CHM
+KFCPHEB1.CHM
+
+;----------------------------------------------------------------
+; Data Sections
+;
+; These sections contain data that is shared between devices.
+;
+;----------------------------------------------------------------
+;
+[XPCORE]
+DriverFile=KFUC70A2.DLL
+ConfigFile=KFUU70A2.DLL
+
+[FAX_ADDREG]
+;HKLM,"SOFTWARE\Kyocera\NetworkFax\Spooler","InstallPath",0,"%11%\spool\drivers\w32x86\3\KFNFMain.exe"
+;HKLM,"SOFTWARE\Kyocera\NetworkFax\Spooler","Version",0,"2.1"
+;HKLM,"SOFTWARE\Kyocera\NetworkFax\Spooler","WindowClassName",0,"KF_NWFAX_Class"
+;HKLM,"SOFTWARE\Kyocera\NetworkFax\Spooler","WindowName",0,"KF_NWFAX_Window"
+
+;
+; Call SetupSetDirectoryId with 66000 to set the target directory at runtime
+; (depending on which environment drivers are getting installed)
+;
+
+[PrinterPackageInstallation.x86]
+PackageAware=TRUE
+
+[PrinterPackageInstallation.amd64]
+PackageAware=TRUE
+
+
+;----------------------------------------------------------------
+; Destination Information
+;----------------------------------------------------------------
+[DestinationDirs]
+DefaultDestDir=66000
+
+
+;----------------------------------------------------------------
+; Source Information
+;----------------------------------------------------------------
+;
+[SourceDisksNames.x86]
+1 = %CDROM%,,,""
+
+[SourceDisksNames.amd64]
+1 = %CDROM%,,,""
+
+[SourceDisksFiles]
+KFUC70A2.DLL     = 1
+KFUU70A2.DLL     = 1
+;KFRG70A2.DLL     = 1
+KFRF70A2.DLL	 = 1
+KFRC70A2.DLL     = 1
+KFFA70A2.DLL     = 1
+KFFL70A2.DLL     = 1
+KFFX70A2.DLL     = 1
+KFM70A2.EXE      = 1
+KFR70A2.DLL      = 1
+KMADRIF3.DLL     = 1
+KMWAB.DLL        = 1
+KMDVLIT2.DLL     = 1
+KMSNMP2.DLL      = 1
+KMSNMP2.INI      = 1
+KMADRWS2.DLL      = 1
+KFNMCPEDIT.DLL   = 1
+KFNMCPEDRES.DLL  = 1
+NWFX70A2.INI     = 1
+KMPipe.dll       = 1
+KFCPDEF.INI      = 1
+KMPipe64.dll     = 1
+KFCPJA01.cpf     = 1
+KFCPJA02.cpf     = 1
+KFCPJA03.cpf     = 1
+KFCPJA04.cpf     = 1
+KFCPJA05.cpf     = 1
+KFCPJA06.cpf     = 1
+KFCPEN01.cpf     = 1
+KFCPEN02.cpf     = 1
+KFCPEN03.cpf     = 1
+KFCPEN04.cpf     = 1
+KFCPEN05.cpf     = 1
+KFCPFR01.cpf     = 1
+KFCPFR02.cpf     = 1
+KFCPFR03.cpf     = 1
+KFCPFR04.cpf     = 1
+KFCPFR05.cpf     = 1
+KFCPGE01.cpf     = 1
+KFCPGE02.cpf     = 1
+KFCPGE03.cpf     = 1
+KFCPGE04.cpf     = 1
+KFCPGE05.cpf     = 1
+KFCPIT01.cpf     = 1
+KFCPIT02.cpf     = 1
+KFCPIT03.cpf     = 1
+KFCPIT04.cpf     = 1
+KFCPIT05.cpf     = 1
+KFCPSP01.cpf     = 1
+KFCPSP02.cpf     = 1
+KFCPSP03.cpf     = 1
+KFCPSP04.cpf     = 1
+KFCPSP05.cpf     = 1
+KFCPSC01.cpf     = 1
+KFCPSC02.cpf     = 1
+KFCPSC03.cpf     = 1
+KFCPSC04.cpf     = 1
+KFCPSC05.cpf     = 1
+KFCPTC01.cpf     = 1
+KFCPTC02.cpf     = 1
+KFCPTC03.cpf     = 1
+KFCPTC04.cpf     = 1
+KFCPTC05.cpf     = 1
+KFCPKO01.cpf     = 1
+KFCPKO02.cpf     = 1
+KFCPKO03.cpf     = 1
+KFCPKO04.cpf     = 1
+KFCPKO05.cpf     = 1
+KFHENG20.CHM     = 1
+KFHCAT20.CHM     = 1
+KFHFRE20.CHM     = 1
+KFHGER20.CHM     = 1
+KFHITA20.CHM     = 1
+KFHSPA20.CHM     = 1
+KFHJPN20.CHM     = 1
+KFHKRE20.CHM     = 1
+KFHSCH20.CHM     = 1
+KFHTCH20.CHM     = 1
+KFHBRA20.CHM     = 1
+KFHCZE20.CHM     = 1
+KFHDAN20.CHM     = 1
+KFHDUT20.CHM     = 1
+KFHFIN20.CHM     = 1
+KFHHUN20.CHM     = 1
+KFHNOR20.CHM     = 1
+KFHPOL20.CHM     = 1
+KFHPOR20.CHM     = 1
+KFHRUS20.CHM     = 1
+KFHSWE20.CHM     = 1
+KFHTUR20.CHM     = 1
+KFHARA20.CHM     = 1
+KFHHEB20.CHM     = 1
+KFCPENG1.CHM     = 1
+KFCPCAT1.CHM     = 1
+KFCPFRE1.CHM     = 1
+KFCPGER1.CHM     = 1
+KFCPITA1.CHM     = 1
+KFCPSPA1.CHM     = 1
+KFCPJPN1.CHM     = 1
+KFCPKRE1.CHM     = 1
+KFCPSCH1.CHM     = 1
+KFCPTCH1.CHM     = 1
+KFCPBRA1.CHM     = 1
+KFCPCZE1.CHM     = 1
+KFCPDAN1.CHM     = 1
+KFCPDUT1.CHM     = 1
+KFCPFIN1.CHM     = 1
+KFCPHUN1.CHM     = 1
+KFCPNOR1.CHM     = 1
+KFCPPOL1.CHM     = 1
+KFCPPOR1.CHM     = 1
+KFCPRUS1.CHM     = 1
+KFCPSWE1.CHM     = 1
+KFCPTUR1.CHM     = 1
+KFCPARA1.CHM     = 1
+KFCPHEB1.CHM     = 1
+KMC265NF.MDX     = 1
+KFF04910.MDX     = 1
+KFF05010.MDX     = 1
+KFF05110.MDX     = 1
+KFF05210.MDX     = 1
+KFF05410.MDX     = 1
+KFF05510.MDX     = 1
+KFF05610.MDX     = 1
+KFF05710.MDX     = 1
+KFF05810.MDX     = 1
+KFF05910.MDX     = 1
+KFF07510.MDX     = 1
+KFF07610.MDX     = 1
+KFF07710.MDX     = 1
+KFF07810.MDX     = 1
+KFF07910.MDX     = 1
+KFF08010.MDX     = 1
+KFF08110.MDX     = 1
+KFK01610.MDX     = 1
+KFK01710.MDX     = 1
+KFK01810.MDX     = 1
+KFK02010.MDX     = 1
+KFK02110.MDX     = 1
+KFK04110.MDX     = 1
+KFK04210.MDX     = 1
+KFK04310.MDX     = 1
+KFK04410.MDX     = 1
+KFK04910.MDX     = 1
+KFK05310.MDX     = 1
+KFK06010.MDX     = 1
+KFK06110.MDX     = 1
+KFK06210.MDX     = 1
+KFK06310.MDX     = 1
+KFK06410.MDX     = 1
+KFK06510.MDX     = 1
+KFK06610.MDX     = 1
+KFK06710.MDX     = 1
+KFK06810.MDX     = 1
+KFK06910.MDX     = 1
+KFK07010.MDX     = 1
+KFK07110.MDX     = 1
+KFK07210.MDX     = 1
+KFK07310.MDX     = 1
+KFK07410.MDX     = 1
+KFF09010.MDX     = 1
+KFF09110.MDX     = 1
+KFF09210.MDX     = 1
+KFF09310.MDX     = 1
+KFF09410.MDX     = 1
+KFF09510.MDX     = 1
+KFF09610.MDX     = 1
+KFF09710.MDX     = 1
+KFF09810.MDX     = 1
+KFF09910.MDX     = 1
+KFF10010.MDX     = 1
+KFF10110.mdx	 = 1
+KFF10210.MDX     = 1
+KFF10310.MDX     = 1
+KFF11110.MDX     = 1
+KFF11310.MDX     = 1
+KFF11410.MDX     = 1
+KFF11510.MDX     = 1
+KFF11910.MDX	 = 1
+KFF12110.MDX	 = 1
+KFF12510.MDX	 = 1
+KFF12710.MDX	 = 1
+KFF08810.MDX	 = 1
+KFF13610.MDX	 = 1
+KFF13810.MDX	 = 1
+KFF08910.MDX	 = 1
+KFF09010P.MDX	 = 1
+KFF09110P.MDX	 = 1
+KFF09220.MDX	 = 1
+KFF09320.MDX	 = 1
+KFF09420.MDX	 = 1
+KFF09520.MDX	 = 1
+KFF09620.MDX	 = 1
+KFF10120.MDX	 = 1
+KFF10220.MDX	 = 1
+KFF10320.MDX	 = 1
+KFF10620.MDX	 = 1
+KFF09720.MDX	 = 1
+KFF09820.MDX	 = 1
+KFF10420.MDX	 = 1
+KFF10520.MDX	 = 1
+KFF09920.MDX	 = 1
+KFF10020.MDX	 = 1
+KFF15210.MDX	 = 1
+KFF15310.MDX	 = 1
+KFF15510.MDX	 = 1
+KFF15610.MDX	 = 1
+KFF15810.MDX	 = 1
+KFF15910.MDX	 = 1
+KFF14410.MDX	 = 1
+KFF14310.MDX	 = 1
+KFF14610.MDX	 = 1
+KFF14510.MDX	 = 1
+KFF16610.MDX	 = 1
+KFF16410.MDX	 = 1
+KFF16510.MDX	 = 1
+KFF16920.MDX	 = 1
+KFF17020.MDX	 = 1
+KFF17820.MDX	 = 1
+KFF17920.MDX	 = 1
+KFF12520.MDX	 = 1
+KFF18820.MDX	 = 1
+KFF18620.MDX	 = 1
+KFF11220.MDX	 = 1
+KFF19420.MDX	 = 1
+KFF19220.MDX	 = 1
+KFF19120.MDX	 = 1
+KFF19020.MDX	 = 1
+KFF18920.MDX	 = 1
+KFF11120.MDX	 = 1
+KFF11020.MDX	 = 1
+KFF20120.MDX	 = 1
+KFF20220.MDX	 = 1
+KFF09630.MDX	 = 1
+KFF09530.MDX	 = 1
+KFF09430.MDX	 = 1
+KFF10630.MDX	 = 1
+KFF09330.MDX	 = 1
+KFF09230.MDX	 = 1
+KFF10330.MDX	 = 1
+KFF10230.MDX	 = 1
+KFF10130.MDX	 = 1
+KFF10720.MDX	 = 1
+KFF21220.MDX	 = 1
+KFF21320.MDX	 = 1
+KFF12720.MDX     = 1
+KFF12920.MDX     = 1
+KFF12820.MDX     = 1
+KFF10530.MDX	 = 1
+;KCMV3D.INI       = 1
+
+KMADRIF.DLL	     = 1
+KMDVLITE.DLL	 = 1
+KMSNMP.DLL	     = 1
+KMSNMP.INI	     = 1
+;----------------------------------------------------------------
+; Localizable Strings
+;----------------------------------------------------------------
+[Strings]
+KMC       = "KYOCERA Document Solutions Inc."
+CDROM   = "NF_LIB"

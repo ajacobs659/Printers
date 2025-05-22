@@ -1,0 +1,328 @@
+;=======================================================================
+;  Brother Setup File
+;  Copyright (c)  2017 Brother Industries,LTD.
+;  FileName   :   brpom17a.inf
+;  Function   :   Port Driver
+;  I/F        :   USB
+;  OS         ;   Windows XP/Vista/7/8/10
+;  Model      :   m17a
+;=======================================================================
+
+[Version]
+Signature = "$Windows NT$"
+Class      = Ports
+ClassGUID  = {4d36e978-e325-11ce-bfc1-08002be10318}
+Provider = %ProviderName%
+DriverPackageType=PlugAndPlay
+DriverPackageDisplayName=%DriverPackageDisplayName%
+DriverVer= 07/20/2021, 1.0.5.1
+CatalogFile=brpom17a.cat
+
+; ========== Manufacturer/Models sections ===========
+
+[Manufacturer]
+%ProviderName% = BrDrv_WinUSB,NTx86,NTamd64.6.0,NTamd64.5.2,NTx86.6.1,NTamd64.6.1
+
+; XP/Vista 32bit
+[BrDrv_WinUSB.NTx86]
+"Brother MFC-L2715DW series"=USB_Install, USB\VID_04F9&PID_043C&MI_02
+"Brother MFC-L2770DW series"=USB_Install, USB\VID_04F9&PID_043B&MI_02
+"Brother MFC-L2750DW series"=USB_Install, USB\VID_04F9&PID_043A&MI_02
+"Brother MFC-L2759DW"=USB_Install, USB\VID_04F9&PID_0526&MI_02
+"Brother MFC-L2730DW series"=USB_Install, USB\VID_04F9&PID_0439&MI_02
+"Brother MFC-L2730DN"=USB_Install, USB\VID_04F9&PID_0438&MI_02
+"Brother MFC-L2717DW"=USB_Install, USB\VID_04F9&PID_0437&MI_02
+"Brother MFC-L2715D series"=USB_Install, USB\VID_04F9&PID_0436&MI_02
+"Brother MFC-L2713DW"=USB_Install, USB\VID_04F9&PID_0435&MI_02
+"Brother MFC-L2710DW series"=USB_Install, USB\VID_04F9&PID_0434&MI_02
+"Brother MFC-L2710DN series"=USB_Install, USB\VID_04F9&PID_0433&MI_02
+"Brother MFC-L2690DW"=USB_Install, USB\VID_04F9&PID_0432&MI_02
+"Brother MFC-B7720DN"=USB_Install, USB\VID_04F9&PID_0431&MI_02
+"Brother MFC-B7710DN"=USB_Install, USB\VID_04F9&PID_04E7&MI_02
+"Brother MFC-B7715DW series"=USB_Install, USB\VID_04F9&PID_0430&MI_02
+"Brother MFC-B7700DW series"=USB_Install, USB\VID_04F9&PID_042F&MI_02
+"Brother MFC-B7700D"=USB_Install, USB\VID_04F9&PID_042E&MI_02
+"Brother MFC-7895DW"=USB_Install, USB\VID_04F9&PID_042D&MI_02
+"Brother MFC-7890DN"=USB_Install, USB\VID_04F9&PID_042C&MI_02
+"Brother MFC-7490D"=USB_Install, USB\VID_04F9&PID_042B&MI_02
+"Brother MFC-7390"=USB_Install, USB\VID_04F9&PID_042A&MI_02
+"Brother FAX-L2710DN"=USB_Install, USB\VID_04F9&PID_0427&MI_02
+
+; Vista 64bit
+[BrDrv_WinUSB.NTamd64.6.0]
+"Brother MFC-L2715DW series"=USB_Install, USB\VID_04F9&PID_043C&MI_02
+"Brother MFC-L2770DW series"=USB_Install, USB\VID_04F9&PID_043B&MI_02
+"Brother MFC-L2750DW series"=USB_Install, USB\VID_04F9&PID_043A&MI_02
+"Brother MFC-L2759DW"=USB_Install, USB\VID_04F9&PID_0526&MI_02
+"Brother MFC-L2730DW series"=USB_Install, USB\VID_04F9&PID_0439&MI_02
+"Brother MFC-L2730DN"=USB_Install, USB\VID_04F9&PID_0438&MI_02
+"Brother MFC-L2717DW"=USB_Install, USB\VID_04F9&PID_0437&MI_02
+"Brother MFC-L2715D series"=USB_Install, USB\VID_04F9&PID_0436&MI_02
+"Brother MFC-L2713DW"=USB_Install, USB\VID_04F9&PID_0435&MI_02
+"Brother MFC-L2710DW series"=USB_Install, USB\VID_04F9&PID_0434&MI_02
+"Brother MFC-L2710DN series"=USB_Install, USB\VID_04F9&PID_0433&MI_02
+"Brother MFC-L2690DW"=USB_Install, USB\VID_04F9&PID_0432&MI_02
+"Brother MFC-B7720DN"=USB_Install, USB\VID_04F9&PID_0431&MI_02
+"Brother MFC-B7710DN"=USB_Install, USB\VID_04F9&PID_04E7&MI_02
+"Brother MFC-B7715DW series"=USB_Install, USB\VID_04F9&PID_0430&MI_02
+"Brother MFC-B7700DW series"=USB_Install, USB\VID_04F9&PID_042F&MI_02
+"Brother MFC-B7700D"=USB_Install, USB\VID_04F9&PID_042E&MI_02
+"Brother MFC-7895DW"=USB_Install, USB\VID_04F9&PID_042D&MI_02
+"Brother MFC-7890DN"=USB_Install, USB\VID_04F9&PID_042C&MI_02
+"Brother MFC-7490D"=USB_Install, USB\VID_04F9&PID_042B&MI_02
+"Brother MFC-7390"=USB_Install, USB\VID_04F9&PID_042A&MI_02
+"Brother FAX-L2710DN"=USB_Install, USB\VID_04F9&PID_0427&MI_02
+
+; XPx64 
+[BrDrv_WinUSB.NTamd64.5.2]
+"Brother MFC-L2715DW series Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_043C&MI_02
+"Brother MFC-L2770DW series Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_043B&MI_02
+"Brother MFC-L2750DW series Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_043A&MI_02
+"Brother MFC-L2759DW Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0526&MI_02
+"Brother MFC-L2730DW series Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0439&MI_02
+"Brother MFC-L2730DN Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0438&MI_02
+"Brother MFC-L2717DW Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0437&MI_02
+"Brother MFC-L2715D series Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0436&MI_02
+"Brother MFC-L2713DW Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0435&MI_02
+"Brother MFC-L2710DW series Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0434&MI_02
+"Brother MFC-L2710DN series Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0433&MI_02
+"Brother MFC-L2690DW Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0432&MI_02
+"Brother MFC-B7720DN Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0431&MI_02
+"Brother MFC-B7710DN Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_04E7&MI_02
+"Brother MFC-B7715DW series Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0430&MI_02
+"Brother MFC-B7700DW series Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_042F&MI_02
+"Brother MFC-B7700D Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_042E&MI_02
+"Brother MFC-7895DW Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_042D&MI_02
+"Brother MFC-7890DN Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_042C&MI_02
+"Brother MFC-7490D Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_042B&MI_02
+"Brother MFC-7390 Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_042A&MI_02
+"Brother FAX-L2710DN Remote Setup Port"=BROTHER.USB.SERIAL, USB\VID_04F9&PID_0427&MI_02
+
+; Windows 7/8 or later 32bit
+[BrDrv_WinUSB.NTx86.6.1]
+"Brother MFC-L2715DW series"=USB_Install1009, USB\VID_04F9&PID_043C&MI_02
+"Brother MFC-L2770DW series"=USB_Install1009, USB\VID_04F9&PID_043B&MI_02
+"Brother MFC-L2750DW series"=USB_Install1009, USB\VID_04F9&PID_043A&MI_02
+"Brother MFC-L2759DW"=USB_Install1009, USB\VID_04F9&PID_0526&MI_02
+"Brother MFC-L2730DW series"=USB_Install1009, USB\VID_04F9&PID_0439&MI_02
+"Brother MFC-L2730DN"=USB_Install1009, USB\VID_04F9&PID_0438&MI_02
+"Brother MFC-L2717DW"=USB_Install1009, USB\VID_04F9&PID_0437&MI_02
+"Brother MFC-L2715D series"=USB_Install1009, USB\VID_04F9&PID_0436&MI_02
+"Brother MFC-L2713DW"=USB_Install1009, USB\VID_04F9&PID_0435&MI_02
+"Brother MFC-L2710DW series"=USB_Install1009, USB\VID_04F9&PID_0434&MI_02
+"Brother MFC-L2710DN series"=USB_Install1009, USB\VID_04F9&PID_0433&MI_02
+"Brother MFC-L2690DW"=USB_Install1009, USB\VID_04F9&PID_0432&MI_02
+"Brother MFC-B7720DN"=USB_Install1009, USB\VID_04F9&PID_0431&MI_02
+"Brother MFC-B7710DN"=USB_Install1009, USB\VID_04F9&PID_04E7&MI_02
+"Brother MFC-B7715DW series"=USB_Install1009, USB\VID_04F9&PID_0430&MI_02
+"Brother MFC-B7700DW series"=USB_Install1009, USB\VID_04F9&PID_042F&MI_02
+"Brother MFC-B7700D"=USB_Install1009, USB\VID_04F9&PID_042E&MI_02
+"Brother MFC-7895DW"=USB_Install1009, USB\VID_04F9&PID_042D&MI_02
+"Brother MFC-7890DN"=USB_Install1009, USB\VID_04F9&PID_042C&MI_02
+"Brother MFC-7490D"=USB_Install1009, USB\VID_04F9&PID_042B&MI_02
+"Brother MFC-7390"=USB_Install1009, USB\VID_04F9&PID_042A&MI_02
+"Brother FAX-L2710DN"=USB_Install1009, USB\VID_04F9&PID_0427&MI_02
+
+; Windows 7/8 or later 64bit
+[BrDrv_WinUSB.NTamd64.6.1]
+"Brother MFC-L2715DW series"=USB_Install1009, USB\VID_04F9&PID_043C&MI_02
+"Brother MFC-L2770DW series"=USB_Install1009, USB\VID_04F9&PID_043B&MI_02
+"Brother MFC-L2750DW series"=USB_Install1009, USB\VID_04F9&PID_043A&MI_02
+"Brother MFC-L2759DW"=USB_Install1009, USB\VID_04F9&PID_0526&MI_02
+"Brother MFC-L2730DW series"=USB_Install1009, USB\VID_04F9&PID_0439&MI_02
+"Brother MFC-L2730DN"=USB_Install1009, USB\VID_04F9&PID_0438&MI_02
+"Brother MFC-L2717DW"=USB_Install1009, USB\VID_04F9&PID_0437&MI_02
+"Brother MFC-L2715D series"=USB_Install1009, USB\VID_04F9&PID_0436&MI_02
+"Brother MFC-L2713DW"=USB_Install1009, USB\VID_04F9&PID_0435&MI_02
+"Brother MFC-L2710DW series"=USB_Install1009, USB\VID_04F9&PID_0434&MI_02
+"Brother MFC-L2710DN series"=USB_Install1009, USB\VID_04F9&PID_0433&MI_02
+"Brother MFC-L2690DW"=USB_Install1009, USB\VID_04F9&PID_0432&MI_02
+"Brother MFC-B7720DN"=USB_Install1009, USB\VID_04F9&PID_0431&MI_02
+"Brother MFC-B7710DN"=USB_Install1009, USB\VID_04F9&PID_04E7&MI_02
+"Brother MFC-B7715DW series"=USB_Install1009, USB\VID_04F9&PID_0430&MI_02
+"Brother MFC-B7700DW series"=USB_Install1009, USB\VID_04F9&PID_042F&MI_02
+"Brother MFC-B7700D"=USB_Install1009, USB\VID_04F9&PID_042E&MI_02
+"Brother MFC-7895DW"=USB_Install1009, USB\VID_04F9&PID_042D&MI_02
+"Brother MFC-7890DN"=USB_Install1009, USB\VID_04F9&PID_042C&MI_02
+"Brother MFC-7490D"=USB_Install1009, USB\VID_04F9&PID_042B&MI_02
+"Brother MFC-7390"=USB_Install1009, USB\VID_04F9&PID_042A&MI_02
+"Brother FAX-L2710DN"=USB_Install1009, USB\VID_04F9&PID_0427&MI_02
+
+; =================== Installation ===================
+
+;[1]
+[USB_Install]
+Include=winusb.inf
+Needs=WINUSB.NT
+AddReg=USB_Install_Reg
+
+;[1']
+[USB_Install1009]
+Include=winusb.inf
+Needs=WINUSB.NT
+AddReg=USB_Install_Reg
+
+;-----------------------------------------
+;[XP64]
+;Start
+
+[BROTHER.USB.SERIAL]
+CopyFiles=BROTHER.USB.SERIAL.CopyFiles
+PreFixLength=8
+PostFixLength=18
+
+[BROTHER.USB.SERIAL.Services]
+Addservice = BrSerIb , 0x00000002, BrSerIb.AddService
+Addservice = BrUsbSIb, 0x00000000, BrUsbSIb.AddService
+
+[BROTHER.USB.SERIAL.HW]
+AddReg=BROTHER.USB.SERIAL.AddReg.HW
+
+[BROTHER.USB.SERIAL.CopyFiles]
+BrSerIb.sys
+BrUsbSib.sys
+
+[BROTHER.USB.SERIAL.CoInstallers]
+AddReg=BrCoInstaller_AddReg
+CopyFiles=BrCoInstaller.CopyFiles
+
+[BROTHER.USB.SERIAL.AddReg.HW]
+HKR,,"LowerFilters", 0x00010000, "BrUsbSIb"
+
+[BrSerIb.AddService]
+DisplayName    = %BrSerIb.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\BrSerIb.sys
+
+[BrUsbSIb.AddService]
+DisplayName    = %BrUsbSIb.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\BrUsbSIb.sys
+
+[BrCoInstaller.CopyFiles]
+brciser.dll
+
+[BrCoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000,"brciser.dll,BrmfcSerCoInstaller"
+
+[DestinationDirs]
+DefaultDestDir = 12
+BrCoInstaller.CopyFiles = 11
+CoInstallers_CopyFiles=11
+
+[SourceDisksNames.amd64]
+3 = %BrDrvDisk1%,,,amd64
+
+;[XP64]
+;End
+;-----------------------------------------
+
+[USB_Install_Reg]
+HKR,,PortSubClassOther,1,01
+
+;[2]
+[USB_Install.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[USB_Install1009.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+;[3]
+[WinUSB_ServiceInstall]
+DisplayName     = %BrDrv_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+;[4]
+[USB_Install.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+
+[USB_Install1009.Wdf]
+KmdfService=WINUSB, WinUsb_Install1009
+
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.5
+
+[WinUSB_Install1009]
+KmdfLibraryVersion=1.9
+
+;[5]
+[USB_Install.HW]
+AddReg=Dev_AddReg
+
+[USB_Install1009.HW]
+AddReg=Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{1EA0A2DA-6162-41EA-861A-E840C3FFF0E2}"
+
+;[6]
+[USB_Install.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[USB_Install1009.CoInstallers]
+AddReg=CoInstallers1009_AddReg
+CopyFiles=CoInstallers1009_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01005.dll,WdfCoInstaller","WinUSBCoInstaller.dll"
+
+[CoInstallers_CopyFiles]
+WinUSBCoInstaller.dll
+WdfCoInstaller01005.dll
+
+[CoInstallers1009_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll","WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[CoInstallers1009_CopyFiles]
+WinUSBCoInstaller2.dll
+WdfCoInstaller01009.dll
+
+; ================= Source Media Section =====================
+;[7]
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\x86
+2 = %DISK_NAME%,,,\amd64
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller.dll=1
+WdfCoInstaller01005.dll=1
+WinUSBCoInstaller2.dll=1
+WdfCoInstaller01009.dll=1
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller.dll=2
+WdfCoInstaller01005.dll=2
+WinUSBCoInstaller2.dll=2
+WdfCoInstaller01009.dll=2
+BrSerIb.sys=3
+BrUsbSib.sys=3
+brciser.dll=3
+
+; =================== Strings ===================
+
+[Strings]
+ProviderName="Brother"
+BrDrv_SvcDesc="Brother WinUSB Port Driver"
+DISK_NAME="Install Disk"
+DriverPackageDisplayName="Brother MFC-L2715DW series,Brother MFC-L2770DW series,Brother MFC-L2750DW series,Brother MFC-L2759DW,Brother MFC-L2730DW series,Brother MFC-L2730DN,Brother MFC-L2717DW,Brother MFC-L2715D series,Brother MFC-L2713DW,Brother MFC-L2710DW series,Brother MFC-L2710DN series,Brother MFC-L2690DW,Brother MFC-B7720DN,Brother MFC-B7715DW series,Brother MFC-B7710DN,Brother MFC-B7700DW series,Brother MFC-B7700D,Brother MFC-7895DW,Brother MFC-7890DN,Brother MFC-7490D,Brother MFC-7390,Brother FAX-L2710DN"
+
+BrSerIb.SvcDesc = "Brother Serial Interface Driver(WDM)"
+BrUsbSIb.SvcDesc = "Brother Serial USB Driver(WDM)"
+BrDrvDisk1 = "Brother Driver Disk"
+
+
+
+
+

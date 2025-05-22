@@ -1,0 +1,2008 @@
+*%******************************************************************************
+*%                                                                             *
+*% Copyright (c) 2020 KYOCERA Document Solutions Inc.                          *
+*% All Rights Reserved.                                                        *
+*%                                                                             *
+*%******************************************************************************
+*GPDSpecVersion: "1.1"
+*GPDFileName: "ecosysp6235cdnpcl6.gpd"
+*GPDFileVersion: "6.0.1527.0"
+
+*%%% =====================================================================
+*%%% Include Standard GPD Files
+*%%% =====================================================================
+*Include: "StdNames.gpd"
+*Include: "msxpsinc.gpd"
+*Include: "locale.gpd"
+*Include: "pclxl.gpd"
+*Include: "pjl.gpd"
+
+*%%% =====================================================================
+*%%% Model Specific Global Entries
+*%%% =====================================================================
+*ModelName: "Kyocera ECOSYS P6235cdn v4 KX (PCL6)"
+*MasterUnits: PAIR(1200, 1200)
+*ResourceDLL: "kyv4res.dll"
+*PrintRate: 35
+*PrintRatePPM: 35
+*PrintRateUnit: PPM
+*PrinterType: PAGE
+*MaxCopies: 999
+
+*Ifdef: WINNT_60
+*PrintSchemaPrivateNamespaceURI: "http://schemas.kyocera.com/printers/KxDriver/v_1_0_"
+*BidiQueryFile: "ecosysp6235cdn.gdl"
+*Endif: WINNT_60
+
+*SuppressExtraBacksidePages?: TRUE
+
+*%%% =====================================================================
+*%%% Macros
+*%%% =====================================================================
+*Macros: PCLXLCommand
+{
+    PCLXL_StreamHeader:      "!R!EXIT;"
++                            ") HP-PCL XL;3;0;"
++                            "Comment Copyright(C) 2013 Kyocera Corporation<0D0A>"
+
+    PCLXL_BeginSession_1200: =ubyte =eInch =attr_ubyte =Measure
++                            =uint16_xy "<B004B004>" =attr_ubyte =UnitsPerMeasure
++                            =ubyte =eBackChAndErrPage =attr_ubyte =ErrorReport =BeginSession
+
+    PCLXL_BeginSession_600:  =ubyte =eInch =attr_ubyte =Measure
++                            =uint16_xy "<58025802>" =attr_ubyte =UnitsPerMeasure
++                            =ubyte =eBackChAndErrPage =attr_ubyte =ErrorReport =BeginSession
+
+    PCLXL_BeginSession_300:  =ubyte =eInch =attr_ubyte =Measure
++                            =uint16_xy "<2C012C01>" =attr_ubyte =UnitsPerMeasure
++                            =ubyte =eBackChAndErrPage =attr_ubyte =ErrorReport =BeginSession
+
+    PCLXL_OpenDataSource:    =ubyte "<00>" =attr_ubyte =SourceType =ubyte "<01>" =attr_ubyte =DataOrg =OpenDataSource
+}
+
+*Macros: AttributeEnum
+{
+    *%%% ---------------------------------------------------------------
+    *%%% MediaSource
+    *%%% ---------------------------------------------------------------
+    MPTRAY:                   "<64>"
+    CASSETTE1:                "<65>"
+    CASSETTE2:                "<66>"
+    CASSETTE3:                "<67>"
+    CASSETTE4:                "<68>"
+    CASSETTE5:                "<69>"
+    CASSETTE6:                "<70>"
+    CASSETTE7:                "<71>"
+    ENVELOPE:                 "<C7>"
+    AUTO_BIN:                 "<01>"
+
+    *%%% ---------------------------------------------------------------
+    *%%% MediaSize
+    *%%% ---------------------------------------------------------------
+    XL20PAPER_MONARCH:        "<65>"
+    XL20PAPER_COM10:          "<66>"
+    XL20PAPER_DL:             "<67>"
+    XL20PAPER_C5:             "<68>"
+    XL20PAPER_EXECUTIVE:      "<69>"
+    XL20PAPER_LETTER:         "<6A>"
+    XL20PAPER_LEGAL:          "<6B>"
+    XL20PAPER_A4:             "<6C>"
+    XL20PAPER_B5:             "<6D>"
+    XL20PAPER_A3:             "<6E>"
+    XL20PAPER_B4:             "<6F>"
+    XL20PAPER_LEDGER:         "<70>"
+    XL20PAPER_A5:             "<71>"
+    XL20PAPER_A6:             "<72>"
+    XL20PAPER_B6:             "<73>"
+    XL20PAPER_COM9:           "<74>"
+    XL20PAPER_COM6:           "<75>"
+    XL20PAPER_ISOB5:          "<76>"
+    XL20PAPER_CUSTOM:         "<77>"
+    XL20PAPER_C4:             "<82>"
+    XL20PAPER_JIS_HAGAKI:     "<83>"
+    XL20PAPER_OUFUKU_HAGAKI:  "<84>"
+    XL20PAPER_OFICIO2:        "<85>"
+    XL20PAPER_LEDGER_FULL:    "<8A>"
+    XL20PAPER_8K:             "<8B>"
+    XL20PAPER_16K:            "<8C>"
+    XL20PAPER_FOOLSCAP:       "<8E>"
+    XL20PAPER_SRA3:           "<90>"
+    XL20PAPER_STATEMENT:      "<96>"
+    XL20PAPER_FOLIO:          "<97>"
+    XL20PAPER_YOU2:           "<98>"
+    XL20PAPER_YOU4:           "<99>"
+	PAPER_USERDEFINE:		  "<10A>"	
+}
+
+*Macros: PJLCommands
+{
+    *%%% ---------------------------------------------------------------
+    *%%% EcoPrint Level
+    *%%% ---------------------------------------------------------------
+    PJL_KECOPRN_LEVEL1:             "@PJL SET KECOPRNLEVEL=1<0A>"
+    PJL_KECOPRN_LEVEL2:             "@PJL SET KECOPRNLEVEL=2<0A>"
+    PJL_KECOPRN_LEVEL3:             "@PJL SET KECOPRNLEVEL=3<0A>"
+    PJL_KECOPRN_LEVEL4:             "@PJL SET KECOPRNLEVEL=4<0A>"
+    PJL_KECOPRN_LEVEL5:             "@PJL SET KECOPRNLEVEL=5<0A>"
+    
+    *%%% ---------------------------------------------------------------
+    *%%% Output Bin
+    *%%% ---------------------------------------------------------------
+    PJL_OUTBIN_UPPER:               "@PJL SET OUTBIN=UPPER<0A>"
+    PJL_OUTBIN_LOWER:               "@PJL SET OUTBIN=LOWER<0A>"
+    PJL_OUTBIN_JOBSEPARATOR:        "@PJL SET OUTBIN=STACKER<0A>"
+    PJL_OUTBIN_JOBSEPARATOR2FD:     "@PJL SET OUTBIN=KJOBSEPARATOR2FACEDOWN<0A>"
+    PJL_OUTBIN_OPTIONFD:            "@PJL SET OUTBIN=OPTIONFACEDOWN<0A>"
+    PJL_OUTBIN_OPTIONSUBFD:         "@PJL SET OUTBIN=KOPTIONSUBFACEDOWN<0A>"
+    PJL_OUTBIN_OPTIONSUB2FD:        "@PJL SET OUTBIN=KOPTIONSUB2FACEDOWN<0A>"
+    PJL_OUTBIN_OPTIONSUBFU:         "@PJL SET OUTBIN=KOPTIONSUBFACEUP<0A>"
+    PJL_OUTBIN_OPTIONSUB2FU:        "@PJL SET OUTBIN=KOPTIONSUB2FACEUP<0A>"
+    PJL_OUTBIN_TRAYFD1:             "@PJL SET OUTBIN=KTRAY1FACEDOWN<0A>"
+    PJL_OUTBIN_TRAYFD2:             "@PJL SET OUTBIN=KTRAY2FACEDOWN<0A>"
+    PJL_OUTBIN_TRAYFD3:             "@PJL SET OUTBIN=KTRAY3FACEDOWN<0A>"
+    PJL_OUTBIN_TRAYFD4:             "@PJL SET OUTBIN=KTRAY4FACEDOWN<0A>"
+    PJL_OUTBIN_TRAYFD5:             "@PJL SET OUTBIN=KTRAY5FACEDOWN<0A>"
+    PJL_OUTBIN_TRAYFD6:             "@PJL SET OUTBIN=KTRAY6FACEDOWN<0A>"
+    PJL_OUTBIN_TRAYFD7:             "@PJL SET OUTBIN=KTRAY7FACEDOWN<0A>"
+    PJL_OUTBIN_TRAYFU1:             "@PJL SET OUTBIN=KTRAY1FACEUP<0A>"
+    PJL_OUTBIN_TRAYFU2:             "@PJL SET OUTBIN=KTRAY2FACEUP<0A>"
+    PJL_OUTBIN_TRAYFU3:             "@PJL SET OUTBIN=KTRAY3FACEUP<0A>"
+    PJL_OUTBIN_TRAYFU4:             "@PJL SET OUTBIN=KTRAY4FACEUP<0A>"
+    PJL_OUTBIN_TRAYFU5:             "@PJL SET OUTBIN=KTRAY5FACEUP<0A>"
+    PJL_OUTBIN_TRAYFU6:             "@PJL SET OUTBIN=KTRAY6FACEUP<0A>"
+    PJL_OUTBIN_TRAYFU7:             "@PJL SET OUTBIN=KTRAY7FACEUP<0A>"
+    PJL_OUTBIN_MAILBOXFU:           "@PJL SET OUTBIN=KMAILBOXFACEUP<0A>"
+    PJL_OUTBIN_MAILBOXFD:           "@PJL SET OUTBIN=KMAILBOXFACEDOWN<0A>"
+
+    *%%% ---------------------------------------------------------------
+    *%%% Gloss Mode
+    *%%% ---------------------------------------------------------------
+    PJL_KGLOSS_LOW:                 "@PJL SET KGLOSS=LOW<0A>"
+    PJL_KGLOSS_HIGH:                "@PJL SET KGLOSS=HIGH<0A>"
+}
+
+*%%% =====================================================================
+*%%% Features and Options
+*%%% =====================================================================
+
+*%******************************************************************************
+*%                                 Orientation                                 *
+*%******************************************************************************
+*Feature: Orientation
+{
+    *rcNameID: =ORIENTATION_DISPLAY
+    *DefaultOption: PORTRAIT
+    *Option: PORTRAIT
+    {
+        *rcNameID: =PORTRAIT_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.1
+            *NoPageEject?: TRUE
+            *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
+        }
+    }
+    *Option: LANDSCAPE_CC90
+    {
+        *rcNameID: =LANDSCAPE_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.1
+            *NoPageEject?: TRUE
+            *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
+        }
+    }
+}
+
+*%******************************************************************************
+*%                                 Duplexing                                   *
+*%******************************************************************************
+*Feature: Duplex
+{
+    *rcNameID: =TWO_SIDED_PRINTING_DISPLAY
+    *DefaultOption: VERTICAL
+    *Option: NONE
+    {
+        *rcNameID: 602
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.5
+            *Cmd: =ubyte "<00>" =attr_ubyte =SimplexPageMode =BeginPage
+        }
+    }
+    *Option: VERTICAL
+    {
+        *rcNameID: =FLIP_ON_LONG_EDGE_DISPLAY
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *Command: CmdSelect
+              {
+                  *Order: PAGE_SETUP.5
+                  *Cmd: =ubyte =eDuplexVerticalBinding =attr_ubyte =DuplexPageMode =BeginPage
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *Command: CmdSelect
+              {
+                  *Order: PAGE_SETUP.5
+                  *Cmd: =ubyte =eDuplexHorizontalBinding =attr_ubyte =DuplexPageMode =BeginPage
+              }
+           }
+        }
+        *Constraints: LIST(MediaType.Transparency,MediaType.Label,MediaType.Vellum,MediaType.EnvelopePlain,MediaType.CardStock,MediaType.Coated)
+    }
+    *Option: HORIZONTAL
+    {
+        *rcNameID: =FLIP_ON_SHORT_EDGE_DISPLAY
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *Command: CmdSelect
+              {
+                  *Order: PAGE_SETUP.5
+                  *Cmd: =ubyte =eDuplexHorizontalBinding =attr_ubyte =DuplexPageMode =BeginPage
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *Command: CmdSelect
+              {
+                  *Order: PAGE_SETUP.5
+                  *Cmd: =ubyte =eDuplexVerticalBinding =attr_ubyte =DuplexPageMode =BeginPage
+              }
+           }
+        }
+        *Constraints: LIST(MediaType.Transparency,MediaType.Label,MediaType.Vellum,MediaType.EnvelopePlain,MediaType.CardStock,MediaType.Coated)
+    }
+}
+
+*%******************************************************************************
+*%                                 Paper Source                                *
+*%******************************************************************************
+*Feature: InputBin
+{
+*%Ifdef: WINNT_60
+    *PrintSchemaKeywordMap: "PageInputBin"
+*%Endif: WINNT_60
+    *rcNameID: =PAPER_SOURCE_DISPLAY
+    *DefaultOption: AutoSelect
+    *Option: AutoSelect
+    {
+        *rcNameID: 2560
+        *OptionID: 7
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.2
+            *Cmd: =ubyte =AUTO_BIN =attr_ubyte =MediaSource
+        }
+    }
+    *Option: Cassette
+    {
+        *PrintSchemaKeywordMap: "Cassette"
+        *rcNameID: 258
+        *OptionID: 14
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.2
+            *Cmd: =ubyte =CASSETTE1 =attr_ubyte =MediaSource
+        }
+        *Constraints: LIST(MediaType.Transparency,MediaType.Label,MediaType.EnvelopePlain,MediaType.CardStock,MediaType.Coated)
+    }
+    *Option: Cassette2
+    {
+        *rcNameID: 259
+        *OptionID: 3
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.2
+            *Cmd: =ubyte =CASSETTE2 =attr_ubyte =MediaSource
+        }
+        *Constraints: LIST(MediaType.Transparency,MediaType.CardStock)
+    }
+    *Option: Cassette3
+    {
+        *rcNameID: 260
+        *OptionID: 2
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.2
+            *Cmd: =ubyte =CASSETTE3 =attr_ubyte =MediaSource
+        }
+        *Constraints: LIST(MediaType.Transparency,MediaType.CardStock)
+    }
+    *Option: Cassette4
+    {
+        *rcNameID: 261
+        *OptionID: 257
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.2
+            *Cmd: =ubyte =CASSETTE4 =attr_ubyte =MediaSource
+        }
+        *Constraints: LIST(MediaType.Transparency,MediaType.CardStock)
+    }
+    *Option: Manual
+    {
+        *PrintSchemaKeywordMap: "Manual"
+        *rcNameID: 276
+        *OptionID: 4
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.2
+            *Cmd: =ubyte =MPTRAY =attr_ubyte =MediaSource
+        }
+    }
+}
+*InvalidCombination: LIST(InputBin.Cassette2,Cassette2.False)
+*InvalidCombination: LIST(InputBin.Cassette3,Cassette3.False)
+*InvalidCombination: LIST(InputBin.Cassette4,Cassette4.False)
+
+*%******************************************************************************
+*%                                 Media Type                                  *
+*%******************************************************************************
+*Feature: MediaType
+{
+    *rcNameID: =MEDIA_TYPE_DISPLAY
+*%Ifdef: WINNT_60
+    *%PrintSchemaKeywordMap: "PageMediaType"
+*%Endif: WINNT_60
+    *DefaultOption: Unspecified
+    *Option: Unspecified
+    {
+        *rcNameID: 518
+        *OptionID: 290
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{4}"None" =attr_ubyte =MediaType
+        }
+    }
+    *Option: AutoSelect
+    {
+        *PrintSchemaKeywordMap: "AutoSelect"
+        *rcNameID: =AUTO_DISPLAY
+        *OptionID: 284
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{4}"Auto" =attr_ubyte =MediaType
+        }
+    }
+    *Option: Plain
+    {
+        *PrintSchemaKeywordMap: "Plain"
+        *rcNameID: 501
+        *OptionID: 1
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{5} =ePlain =attr_ubyte =MediaType
+        }
+    }
+    *Option: Transparency
+    {
+        *PrintSchemaKeywordMap: "Transparency"
+        *rcNameID: 502
+        *OptionID: 2
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{12} =eTransparency =attr_ubyte =MediaType
+        }
+    }
+    *Option: PrePrinted
+    {
+        *rcNameID: 503
+        *OptionID: 277
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{10} =ePreprinted =attr_ubyte =MediaType
+        }
+    }
+    *Option: Label
+    {
+        *PrintSchemaKeywordMap: "Label"
+        *rcNameID: 505
+        *OptionID: 276
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{6} =eLabels =attr_ubyte =MediaType
+        }
+    }
+    *Option: Bond
+    {
+        *PrintSchemaKeywordMap: "Bond"
+        *rcNameID: 504
+        *OptionID: 257
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{4} =eBond =attr_ubyte =MediaType
+        }
+    }
+    *Option: Recycled
+    {
+        *rcNameID: 506
+        *OptionID: 258
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{8} =eRecycled =attr_ubyte =MediaType
+        }
+    }
+    *Option: Vellum
+    {
+        *rcNameID: 512
+        *OptionID: 259
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{6} =eVellum =attr_ubyte =MediaType
+        }
+    }
+    *Option: Rough
+    {
+        *rcNameID: 507
+        *OptionID: 260
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{5} =eRough =attr_ubyte =MediaType
+        }
+    }
+    *Option: Letterhead
+    {
+        *rcNameID: 508
+        *OptionID: 261
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{10} =eLetterhead =attr_ubyte =MediaType
+        }
+    }
+    *Option: Color
+    {
+        *rcNameID: 509
+        *OptionID: 262
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{5} =eColor =attr_ubyte =MediaType
+        }
+    }
+    *Option: PrePunched
+    {
+        *rcNameID: 513
+        *OptionID: 263
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{10} =ePrepunched =attr_ubyte =MediaType
+        }
+    }
+    *Option: EnvelopePlain
+    {
+        *PrintSchemaKeywordMap: "EnvelopePlain"
+        *rcNameID: 510
+        *OptionID: 264
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{8}"Envelope" =attr_ubyte =MediaType
+        }
+    }
+    *Option: CardStock
+    {
+        *PrintSchemaKeywordMap: "CardStock"
+        *rcNameID: 511
+        *OptionID: 265
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{10}"Card Stock" =attr_ubyte =MediaType
+        }
+    }
+    *Option: Coated
+    {
+        *rcNameID: 516
+        *OptionID: 286
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{6}"Coated" =attr_ubyte =MediaType
+        }
+    }
+    *Option: Thick
+    {
+        *rcNameID: 514
+        *OptionID: 288
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{5}"Thick" =attr_ubyte =MediaType
+        }
+    }
+    *Option: FinePaper
+    {
+        *rcNameID: 515
+        *OptionID: 289
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{4}"Fine" =attr_ubyte =MediaType
+        }
+    }
+    *Option: Custom1
+    {
+        *rcNameID: 531
+        *OptionID: 266
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{7}"Custom1" =attr_ubyte =MediaType
+        }
+    }
+    *Option: Custom2
+    {
+        *rcNameID: 532
+        *OptionID: 267
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{7}"Custom2" =attr_ubyte =MediaType
+        }
+    }
+    *Option: Custom3
+    {
+        *rcNameID: 533
+        *OptionID: 268
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{7}"Custom3" =attr_ubyte =MediaType
+        }
+    }
+    *Option: Custom4
+    {
+        *rcNameID: 534
+        *OptionID: 269
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{7}"Custom4" =attr_ubyte =MediaType
+        }
+    }
+    *Option: Custom5
+    {
+        *rcNameID: 535
+        *OptionID: 270
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{7}"Custom5" =attr_ubyte =MediaType
+        }
+    }
+    *Option: Custom6
+    {
+        *rcNameID: 536
+        *OptionID: 271
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{7}"Custom6" =attr_ubyte =MediaType
+        }
+    }
+    *Option: Custom7
+    {
+        *rcNameID: 537
+        *OptionID: 272
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{7}"Custom7" =attr_ubyte =MediaType
+        }
+    }
+    *Option: Custom8
+    {
+        *rcNameID: 538
+        *OptionID: 273
+        *Command: CmdSelect
+        {
+           *Order: PAGE_SETUP.4
+           *Cmd: =ubyte_array =uint16 %l{7}"Custom8" =attr_ubyte =MediaType
+        }
+    }
+}
+
+*%******************************************************************************
+*%                                 Resolution                                  *
+*%******************************************************************************
+*Feature: Resolution
+{
+    *rcNameID: =RESOLUTION_DISPLAY
+    *DefaultOption: Resolution600
+    *Option: Resolution1200
+    {
+        *rcNameID: 1120
+        *DPI: PAIR(1200, 1200)
+        *TextDPI: PAIR(1200, 1200)
+        *SpotDiameter: 100
+        *Command: CmdSendBlockData { *Cmd : "" }
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.8
+            *Cmd: =PJL_RESOLUTION_1200 =PJL_ENTER_PCLXL =PCLXL_StreamHeader =PCLXL_BeginSession_1200 =PCLXL_OpenDataSource
+        }
+    }
+    *Option: Resolution600
+    {
+        *rcNameID: 1122
+        *DPI: PAIR(600, 600)
+        *TextDPI: PAIR(600, 600)
+        *SpotDiameter: 100
+        *Command: CmdSendBlockData { *Cmd : "" }
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.8
+            *Cmd: =PJL_RESOLUTION_600 =PJL_ENTER_PCLXL =PCLXL_StreamHeader =PCLXL_BeginSession_600 =PCLXL_OpenDataSource
+        }
+    }
+}
+
+*%******************************************************************************
+*%                                 Halftoning                                  *
+*%******************************************************************************
+*Feature: Halftone
+{
+    *rcNameID: =HALFTONING_DISPLAY
+    *DefaultOption: Normal
+    *Option: Normal
+    {
+        *rcNameID: 3206
+    }
+    *Option: Gradation
+    {
+        *rcNameID: 3207
+    }    
+    *Option: Resolution
+    {
+        *rcNameID: 3208
+    }
+    *Option: HighDefinition
+    {
+        *rcNameID: 3209
+    }
+}
+
+*%*********************************************************************************
+*%                                 Color Mode                                     *
+*%*********************************************************************************
+*Feature: ColorMode
+{
+    *rcNameID: 3210
+    *DefaultOption: Color
+    *Option: Monochrome
+    {
+        *rcNameID: 1743 *% Black
+        *DevNumOfPlanes: 1
+        *DevBPP: 1
+        *Color?: FALSE
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.6
+            *Cmd: =ubyte =eGray =attr_ubyte =ColorSpace =SetColorSpace
+        }
+    }
+    *Option: Color
+    {
+        *rcNameID: 3211 *% Full Color
+        *DevNumOfPlanes: 1
+        *DevBPP: 24
+        *DrvBPP: 24
+        *PaletteSize: 1
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.6
+            *Cmd: =ubyte =eRGB =attr_ubyte =ColorSpace =SetColorSpace
+        }
+    }
+}
+
+*%******************************************************************************
+*%                                 Paper Size                                  *
+*%******************************************************************************
+*Feature: PaperSize
+{
+    *rcNameID: =PAPER_SIZE_DISPLAY
+*%Ifdef: WINNT_60
+    *%PrintSchemaKeywordMap: "PageMediaSize"
+*%Endif: WINNT_60
+    *DefaultOption: LETTER
+    *Option: LETTER
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "NorthAmericaLetter"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(9800, 12800)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_LETTER =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(9800, 12800)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 6600)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_LETTER =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: LEGAL
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "NorthAmericaLegal"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(9800, 16400)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_LEGAL =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(9800, 16400)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 8400)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_LEGAL =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: STATEMENT
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "NorthAmericaStatement"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(6200, 9800)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_STATEMENT =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(6200, 9800)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 5100)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_STATEMENT =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: EXECUTIVE
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "NorthAmericaExecutive"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(8300, 12200)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_EXECUTIVE =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(8300, 12200)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 6300)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_EXECUTIVE =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: A3
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "ISOA3"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(13628, 19440)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_A3 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(13628, 19440)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 9920)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_A3 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: A4
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "ISOA4"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(9520, 13628)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_A4 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(9520, 13628)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 7014)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_A4 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: A5
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "ISOA5"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(6592, 9520)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_A5 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(6592, 9520)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 4960)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_A5 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: A6
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "ISOA6"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(4560, 6592)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_A6 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(4560, 6592)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 3496)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_A6 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: FOLIO
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(9520, 15188)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_FOLIO =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(9520, 15188)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 7794)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_FOLIO =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: B4
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "JISB4"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(11740, 16796)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_B4 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(11740, 16796)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 8598)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_B4 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: B5
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(8196, 11740)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_B5 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(8196, 11740)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 6070)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_B5 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: B6_JIS
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(5648, 8204)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_B6 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(5648, 8204)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 4302)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_B6 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: ENV_B5
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "ISOB5Envelope"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(7912, 11408)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_ISOB5 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(7912, 11408)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 5904)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_ISOB5 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: ENV_10
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(4548, 11000)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_COM10 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(4548, 11000)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 5700)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_COM10 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: ENV_9
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(4252, 10252)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_COM9 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(4252, 10252)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 5326)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_COM9 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: ENV_MONARCH
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "NorthAmericaMonarchEnvelope"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(4248, 8600)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_MONARCH =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(4248, 8600)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 4500)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_MONARCH =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: ENV_PERSONAL
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "NorthAmericaPersonalEnvelope"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(3952, 7400)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_COM6 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(3952, 7400)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 3900)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_COM6 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: ENV_C5
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(7252, 10416)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_C5 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(7252, 10416)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 5408)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_C5 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: ENV_DL
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+        *PrintSchemaKeywordMap: "ISODLEnvelope"
+*Endif: WINNT_60
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(4796, 9992)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_DL =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(4796, 9992)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 5196)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_DL =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: Oficio2
+    {
+        *rcNameID: 404
+        *PageDimensions: PAIR(10200, 15600)
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(9800, 15200)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_OFICIO2 =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(9800, 15200)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 7800)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_OFICIO2 =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: PRC16K
+    {
+        *rcNameID: 406
+        *PageDimensions: PAIR(9300, 12900)
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(8906, 12496)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_16K =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(8906, 12496)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 6448)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_16K =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: Foolscap
+    {
+        *rcNameID: 415
+        *PageDimensions: PAIR(10200, 16060)
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *PrintableArea: PAIR(9804, 15664)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 200)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_FOOLSCAP =attr_ubyte =MediaSize
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *PrintableArea: PAIR(9804, 15664)
+              *PrintableOrigin: PAIR(200, 200)
+              *CursorOrigin: PAIR(200, 8032)
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =ubyte =XL20PAPER_FOOLSCAP =attr_ubyte =MediaSize
+              }
+           }
+        }
+    }
+    *Option: CUSTOMSIZE
+    {
+        *rcNameID: =USER_DEFINED_SIZE_DISPLAY
+        *MinSize: PAIR(3308, 6993)
+        *MaxSize: PAIR(10204, 16818)
+        *MaxPrintableWidth: 10204
+        *MinLeftMargin: 50
+        *CenterPrintable?: FALSE
+        *PageProtectMem: 1692
+        *switch: Orientation
+        {
+           *case: PORTRAIT
+           {
+              *CustPrintableSizeX:%d{PhysPaperWidth-300}
+              *CustPrintableSizeY:%d{PhysPaperLength-300}
+              *CustPrintableOriginX:%d{150}
+              *CustPrintableOriginY:%d{150}
+              *CustCursorOriginX:%d{150}
+              *CustCursorOriginY:%d{150}
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =uint16_xy %l{(PhysPaperWidth*254)/1200}%l{(PhysPaperLength*254)/1200} =attr_ubyte =CustomMediaSize
++                      =ubyte =eTenthsOfAMillimeter =attr_ubyte =CustomMediaSizeUnits
+              }
+           }
+           *case: LANDSCAPE_CC90
+           {
+              *CustPrintableSizeX:%d{PhysPaperWidth-300}
+              *CustPrintableSizeY:%d{PhysPaperLength-300}
+              *CustPrintableOriginX:%d{150}
+              *CustPrintableOriginY:%d{150}
+              *CustCursorOriginX:%d{100}
+              *CustCursorOriginY:%d{PhysPaperLength-100}
+              *Command: CmdSelect
+              {
+                 *Order: PAGE_SETUP.3
+                 *Cmd: =uint16_xy %l{(PhysPaperWidth*254)/1200}%l{(PhysPaperLength*254)/1200} =attr_ubyte =CustomMediaSize
++                      =ubyte =eTenthsOfAMillimeter =attr_ubyte =CustomMediaSizeUnits
+              }
+           }
+        }
+    }
+}
+
+*%*****************************************************************************
+*%                                  Output Bin                                *
+*%*****************************************************************************
+*Feature: OutputBin
+{
+    *rcNameID: =OUTPUTBIN_DISPLAY
+    *DefaultOption: DestPrinterDefault
+    *Option: DestPrinterDefault
+    {
+        *rcNameID: 604
+    }
+}
+
+*%*********************************************************************************
+*%                         KIR (Kyocera Image Refinement)                         *
+*%*********************************************************************************
+*Feature: JobEdgeSmoothing
+{
+    *rcNameID: 1000
+    *DefaultOption: On
+    *Option: Off
+    {
+        *PrintSchemaKeywordMap: "Off"
+        *rcNameID: =OFF_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: =PJL_KIR_OFF
+        }
+    }
+    *Option: On
+    {
+        *PrintSchemaKeywordMap: "On"
+        *rcNameID: =ON_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: =PJL_KIR_ON
+        }
+    }
+}
+
+*%******************************************************************************
+*%                                 Gloss Mode                                  *
+*%******************************************************************************
+*Feature: JobGlossMode
+{
+    *rcNameID: 1725
+    *DefaultOption: Off
+    *Option: Off
+    {
+        *PrintSchemaKeywordMap: "Off"
+        *rcNameID: =OFF_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.4
+            *Cmd: =PJL_KGLOSS_LOW
+        }
+    }
+    *Option: On
+    {
+        *PrintSchemaKeywordMap: "On"
+        *rcNameID: =ON_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.4
+            *Cmd: =PJL_KGLOSS_HIGH
+        }
+        *Constraints: JobEcoPrint.On
+    }
+}
+
+*%*********************************************************************************
+*%                                  Collate                                       *
+*%*********************************************************************************
+*Feature: Collate
+{
+    *rcNameID: 1504
+*%Ifdef: WINNT_60
+    *%PrintSchemaKeywordMap: "JobCollateAllDocuments"
+    *%PrintSchemaKeywordMap: "DocumentCollate"
+*%Endif: WINNT_60
+    *DefaultOption: ON
+    *Option: ON
+    {
+        *PrintSchemaKeywordMap: "On"
+        *rcNameID: =ON_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.2
+            *Cmd: =PJL_COLLATE_ON
+        }
+    }
+    *Option: OFF
+    {
+        *PrintSchemaKeywordMap: "Off"
+        *rcNameID: =OFF_DISPLAY
+    }
+}
+
+*%*********************************************************************************
+*%                               Job Accounting ID                                *
+*%*********************************************************************************
+*Feature: JobAccounting
+{
+    *rcNameID: 1450
+    *DefaultOption: None
+    *Option: None
+    {
+        *PrintSchemaKeywordMap: "None"
+        *rcNameID: 602
+    }
+    *Option: Account_00000000
+    {
+        *Name: "00000000"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000000<220A>"
+        }
+    }
+    *Option: Account_00000001
+    {
+        *Name: "00000001"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000001<220A>"
+        }
+    }
+    *Option: Account_00000002
+    {
+        *Name: "00000002"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000002<220A>"
+        }
+    }
+    *Option: Account_00000003
+    {
+        *Name: "00000003"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000003<220A>"
+        }
+    }
+    *Option: Account_00000004
+    {
+        *Name: "00000004"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000004<220A>"
+        }
+    }
+    *Option: Account_00000005
+    {
+        *Name: "00000005"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000005<220A>"
+        }
+    }
+    *Option: Account_00000006
+    {
+        *Name: "00000006"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000006<220A>"
+        }
+    }
+    *Option: Account_00000007
+    {
+        *Name: "00000007"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000007<220A>"
+        }
+    }
+    *Option: Account_00000008
+    {
+        *Name: "00000008"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000008<220A>"
+        }
+    }
+    *Option: Account_00000009
+    {
+        *Name: "00000009"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000009<220A>"
+        }
+    }
+    *Option: Account_00000010
+    {
+        *Name: "00000010"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000010<220A>"
+        }
+    }
+    *Option: Account_00000011
+    {
+        *Name: "00000011"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000011<220A>"
+        }
+    }
+    *Option: Account_00000012
+    {
+        *Name: "00000012"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000012<220A>"
+        }
+    }
+    *Option: Account_00000013
+    {
+        *Name: "00000013"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000013<220A>"
+        }
+    }
+    *Option: Account_00000014
+    {
+        *Name: "00000014"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000014<220A>"
+        }
+    }
+    *Option: Account_00000015
+    {
+        *Name: "00000015"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000015<220A>"
+        }
+    }
+    *Option: Account_00000016
+    {
+        *Name: "00000016"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000016<220A>"
+        }
+    }
+    *Option: Account_00000017
+    {
+        *Name: "00000017"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000017<220A>"
+        }
+    }
+    *Option: Account_00000018
+    {
+        *Name: "00000018"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000018<220A>"
+        }
+    }
+    *Option: Account_00000019
+    {
+        *Name: "00000019"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000019<220A>"
+        }
+    }
+    *Option: Account_00000020
+    {
+        *Name: "00000020"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000020<220A>"
+        }
+    }
+    *Option: Account_00000021
+    {
+        *Name: "00000021"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000021<220A>"
+        }
+    }
+    *Option: Account_00000022
+    {
+        *Name: "00000022"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000022<220A>"
+        }
+    }
+    *Option: Account_00000023
+    {
+        *Name: "00000023"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000023<220A>"
+        }
+    }
+    *Option: Account_00000024
+    {
+        *Name: "00000024"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000024<220A>"
+        }
+    }
+    *Option: Account_00000025
+    {
+        *Name: "00000025"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000025<220A>"
+        }
+    }
+    *Option: Account_00000026
+    {
+        *Name: "00000026"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000026<220A>"
+        }
+    }
+    *Option: Account_00000027
+    {
+        *Name: "00000027"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000027<220A>"
+        }
+    }
+    *Option: Account_00000028
+    {
+        *Name: "00000028"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000028<220A>"
+        }
+    }
+    *Option: Account_00000029
+    {
+        *Name: "00000029"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000029<220A>"
+        }
+    }
+    *Option: Account_00000030
+    {
+        *Name: "00000030"
+        *Command: CmdSelect
+        {
+            *Order: JOB_SETUP.5
+            *Cmd: "@PJL SET KJOBMANAGERCODE=<22>00000030<220A>"
+        }
+    }
+}
+
+*%*****************************************************************************
+*%                             Output Document Type                           *
+*%*****************************************************************************
+*Feature: JobOutputDocumentType
+{
+    *rcNameID: 3201
+    *DefaultOption: PCLXL
+    *Option: PCLXL
+    {
+        *rcNameID: 3204
+    }
+}
+
+*%*****************************************************************************
+*%                                Paper Feeder                                *
+*%*****************************************************************************
+*Feature: Cassette1
+{
+    *rcNameID: 2554
+    *FeatureType: PRINTER_PROPERTY
+    *DefaultOption: True
+    *Option: True
+    {
+        *rcNameID: 601
+    }
+}
+*Feature: Cassette2
+{
+    *rcNameID: 2555
+    *FeatureType: PRINTER_PROPERTY
+    *DefaultOption: False
+    *Option: False
+    {
+        *rcNameID: 600
+    }
+    *Option: True
+    {
+        *rcNameID: 601
+        *Constraints: Cassette1.False
+    }
+}
+*Feature: Cassette3
+{
+    *rcNameID: 2556
+    *FeatureType: PRINTER_PROPERTY
+    *DefaultOption: False
+    *Option: False
+    {
+        *rcNameID: 600
+    }
+    *Option: True
+    {
+        *rcNameID: 601
+        *Constraints: LIST(Cassette1.False,Cassette2.False)
+    }
+}
+*Feature: Cassette4
+{
+    *rcNameID: 2557
+    *FeatureType: PRINTER_PROPERTY
+    *DefaultOption: False
+    *Option: False
+    {
+        *rcNameID: 600
+    }
+    *Option: True
+    {
+        *rcNameID: 601
+        *Constraints: LIST(Cassette1.False,Cassette2.False,Cassette3.False)
+    }
+}
+
+*%*********************************************************************************
+*%                                  Optional Disk                                 *
+*%*********************************************************************************
+*Feature: PrinterSSD
+{
+    *rcNameID: 2538
+    *FeatureType: PRINTER_PROPERTY
+    *DefaultOption: False
+    *Option: False
+    {
+        *rcNameID: 600
+    }
+    *Option: True
+    {
+        *rcNameID: 601
+        *Constraints: RAMDisk.True
+    }
+}
+*Feature: PrinterSDCard
+{
+    *rcNameID: 2539
+    *FeatureType: PRINTER_PROPERTY
+    *DefaultOption: False
+    *Option: False
+    {
+        *rcNameID: 600
+    }
+    *Option: True
+    {
+        *rcNameID: 601
+    }
+}
+*Feature: RAMDisk
+{
+    *rcNameID: 2352
+    *FeatureType: PRINTER_PROPERTY
+    *DefaultOption: True
+    *Option: False
+    {
+        *rcNameID: 600
+    }
+    *Option: True
+    {
+        *rcNameID: 601
+        *Constraints: PrinterSSD.True
+    }
+}
+
+
+*%%% =====================================================================
+*%%% Command Blocks
+*%%% =====================================================================
+*Command: CmdStartJob
+{
+    *Order: JOB_SETUP.1
+    *Cmd: "!R!SEM6;EXIT;" =PJL_STARTJOB "@PJL SET TIMEOUT=300<0D><0A>"
+}
+
+*Command: CmdEndJob
+{
+    *Order: JOB_FINISH.1
+    *Cmd: =CloseDataSource =EndSession =PJL_ENDJOB "!R!RES;EXIT;"
+}
+
+*switch: Collate
+{
+    *case: ON
+    {
+        *Command: CmdEndPage
+        {
+            *Order: PAGE_FINISH.1
+            *Cmd: =uint16 %l{1} =attr_ubyte =PageCopies =EndPage
+        }
+    }
+    *case: OFF
+    {
+        *Command: CmdEndPage
+        {
+            *Order: PAGE_FINISH.1
+            *Cmd: =uint16 %l{NumOfCopies} =attr_ubyte =PageCopies =EndPage
+        }
+    }
+}
+
+
+*%%% =====================================================================
+*%%% Root Attributes
+*%%% =====================================================================
+*Command: CmdCR { *Cmd : "<0D>" }  *% Required Commands Entry
+*Command: CmdLF { *Cmd : "<0A>" }  *% Required Commands Entry
+*Command: CmdFF { *Cmd : "<0C>" }  *% Required Commands Entry
+

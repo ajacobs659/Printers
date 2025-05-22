@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Properties xmlns="http://schemas.microsoft.com/windows/2011/08/printing/devmodemap">
+  <Property Name="PDL">
+    <Int32>3</Int32>
+  </Property>
+  <!-- Base64 String -->
+  <Property Name="PublicSettings">
+    <String Length="4096">RE0BAAMA//8DAAAA</String>
+  </Property>
+  <Property Name="PrivateSettings">
+    <String Length="10240">RE0BAAMA//8DAAAA</String>
+  </Property>
+  <!-- Hex String -->
+  <!--
+  <Property Name="PublicSettings">
+    <String Length="5120">444D01000300FFFF03000000</String>
+  </Property>
+  <Property Name="PrivateSettings">
+    <String Length="10240">444D01000300FFFF03000000</String>
+  </Property>
+  -->
+</Properties>

@@ -1,0 +1,52 @@
+<!--
+================================================================
+
+  kyv4-pcl6-pipelineconfig.xml
+
+  Kyocera PCL6 v4 Driver Pipeline Configuration File
+  Windows 8 and greater
+
+  (C) 2020 KYOCERA Document Solutions Inc.
+
+================================================================
+-->
+
+<Filters>
+    <Filter dll            = "kyv4-filter.dll"
+            clsid          = "{127e6d5b-3a48-455a-8dfb-316ebf8ec684}"
+            name           = "kyv4ftelemetry">
+            <Input   guid  = "{b8cf8530-5562-47c4-ab67-b1f69ecf961e}" comment="IID_IXpsDocumentProvider"/>
+            <Output  guid  = "{4368d8a2-4181-4a9f-b295-3d9a38bb9ba0}" comment="IID_IXpsDocumentConsumer"/>
+    </Filter>
+    <Filter dll           = "kyv4-fjt.dll"
+            clsid         = "{b9b52406-92d3-4721-86e6-3cf78f163676}"
+            name          = "Joint Filter">
+            <Input   guid = "{b8cf8530-5562-47c4-ab67-b1f69ecf961e}" comment="IID_IXpsDocumentProvider"/>
+            <Output  guid = "{4368d8a2-4181-4a9f-b295-3d9a38bb9ba0}" comment="IID_IXpsDocumentConsumer"/>
+    </Filter>
+    <Filter dll           = "kyv4-fds.dll"
+            clsid         = "{CFF7BE69-E62D-403b-BE4F-48EC73F5DA1A}"
+            name          = "Downsample Filter">
+            <Input   guid = "{b8cf8530-5562-47c4-ab67-b1f69ecf961e}" comment="IID_IXpsDocumentProvider"/>
+            <Output  guid = "{4368d8a2-4181-4a9f-b295-3d9a38bb9ba0}" comment="IID_IXpsDocumentConsumer"/> 
+    </Filter>
+    <Filter dll           = "kyv4-filter.dll"
+            clsid         = "{0a2e4bf5-e94d-4633-8a63-0fa63cb935d4}"
+            name          = "kyv4fsavept">
+            <Input   guid = "{b8cf8530-5562-47c4-ab67-b1f69ecf961e}" comment="IID_IXpsDocumentProvider"/>
+            <Output  guid = "{4368d8a2-4181-4a9f-b295-3d9a38bb9ba0}" comment="IID_IXpsDocumentConsumer"/>
+    </Filter>
+    <Filter dll           = "MSxpsPCL6.dll" 
+            clsid         = "{3821E518-33AF-4d17-92B3-28EB410D46B6}"
+            name          = "Microsoft XPS to PCL6"> 
+            <Input   guid = "{4d47a67c-66cc-4430-850e-daf466fe5bc4}" comment="IID_IPrintReadStream" /> 
+            <Output  guid = "{65bb7f1b-371e-4571-8ac7-912f510c1a38}" comment="IID_IPrintWriteStream" /> 
+    </Filter>
+    <Filter dll           = "kyv4-filter.dll"
+            clsid         = "{2db54f3b-88cf-4f06-800c-38137981fdb6}"
+            name          = "kyv4fapplypt">
+            <Input   guid = "{4d47a67c-66cc-4430-850e-daf466fe5bc4}" comment="IID_IPrintReadStream"/>
+            <Output  guid = "{65bb7f1b-371e-4571-8ac7-912f510c1a38}" comment="IID_IPrintWriteStream"/>
+    </Filter>
+    <FilterServiceProvider dll = "PrintConfig.dll"/>
+</Filters> 

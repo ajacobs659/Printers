@@ -1,0 +1,321 @@
+*%******************************************************************************
+*%                                                                             *
+*% Copyright (c) 2020 KYOCERA Document Solutions Inc.                          *
+*% All Rights Reserved.                                                        *
+*%                                                                             *
+*%******************************************************************************
+
+*%*****************************************************************************
+*%	PAPER SOURCES
+*%*****************************************************************************
+
+*Feature: Cassette34
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: Cassette34
+	{
+		*QueryString: "\Printer.Layout.InputBin.Dual500Cassette:Installed"
+	}
+	*BidiResponse: Cassette34
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(Cassette34)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*Feature: LargeCapacityFeeder34
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: LargeCapacityFeeder34
+	{
+		*QueryString: "\Printer.Layout.InputBin.Dual1500Cassette:Installed"
+	}
+	*BidiResponse: LargeCapacityFeeder34
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(LargeCapacityFeeder34)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*Feature: SideFeeder5
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: SideFeeder5
+	{
+		*QueryString: "\Printer.Layout.InputBin.SideFeeder:Installed"
+	}
+	*BidiResponse: SideFeeder5
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(SideFeeder5)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*%*****************************************************************************
+*%	JOB SEPARATOR
+*%*****************************************************************************
+
+*Feature: JobSeparator
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: JobSeparator
+	{
+		*QueryString: "\Printer.Finishing.OutputBin.JobSeparator:Installed"
+	}
+	*BidiResponse: JobSeparator
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(JobSeparator)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*%*****************************************************************************
+*%	DOCUMENT FINISHERS
+*%*****************************************************************************
+
+*Feature: InnerFinisher
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: InnerFinisher
+	{
+		*QueryString: "\Printer.Finishing.InnerFinisher:Installed"
+	}
+	*BidiResponse: InnerFinisher
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(InnerFinisher)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*Feature: 1000SheetFinisher
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: 1000SheetFinisher
+	{
+		*QueryString: "\Printer.Finishing.1000Finisher:Installed"
+	}
+	*BidiResponse: 1000SheetFinisher
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(1000SheetFinisher)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*Feature: 4000SheetFinisher
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: 4000SheetFinisher
+	{
+		*QueryString: "\Printer.Finishing.4000FinisherDF7110:Installed"
+	}
+	*BidiResponse: 4000SheetFinisher
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(4000SheetFinisher)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*%*****************************************************************************
+*%	MAILBOX
+*%*****************************************************************************
+
+*Feature: Mailbox
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: Mailbox
+	{
+		*QueryString: "\Printer.Finishing.OutputBin.Mailbox:Installed"
+	}
+	*BidiResponse: Mailbox
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(Mailbox)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*%*********************************************************************************
+*% FOLDING UNIT
+*%*********************************************************************************
+
+*Feature: FoldingUnit
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: FoldingUnit
+	{
+		*QueryString: "\Printer.Finishing.OutputBin.BookletFolder:Installed"
+	}
+	*BidiResponse: FoldingUnit
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(FoldingUnit)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*%*****************************************************************************
+*%	OPTIONAL DISKS
+*%*****************************************************************************
+
+*Feature: HardDisk
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: HardDisk
+	{
+		*QueryString: "\Printer.Configuration.HardDisk:Installed"
+	}
+	*BidiResponse: HardDisk
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(HardDisk)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*%*****************************************************************************
+*%	HOLE PUNCH
+*%*****************************************************************************
+
+*Feature: Punch23Unit
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: Punch23Unit
+	{
+		*QueryString: "\Printer.Finishing.Punch23Unit:Installed"
+	}
+	*BidiResponse: Punch23Unit
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(Punch23Unit)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*Feature: Punch2Unit
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: Punch2Unit
+	{
+		*QueryString: "\Printer.Finishing.Punch2Unit:Installed"
+	}
+	*BidiResponse: Punch2Unit
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(Punch2Unit)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*Feature: Punch24Unit
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: Punch24Unit
+	{
+		*QueryString: "\Printer.Finishing.Punch24Unit:Installed"
+	}
+	*BidiResponse: Punch24Unit
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(Punch24Unit)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+

@@ -1,0 +1,224 @@
+;=======================================================================
+;  Brother Setup File
+;  Copyright (c)  2017 Brother Industries,LTD.
+;  FileName   :   brium17a.inf
+;  Function   :   Port Driver
+;  I/F        :   USB
+;  OS         ;   WindowsXP/Vista/7/8/10
+;  Model      :   m17a
+;=======================================================================
+
+[Version]
+Signature = "$Windows NT$"
+Class      = Ports
+ClassGUID  = {4d36e978-e325-11ce-bfc1-08002be10318}
+Provider = %ProviderName%
+DriverPackageType=PlugAndPlay
+DriverPackageDisplayName=%DriverPackageDisplayName%
+DriverVer= 07/15/2021, 1.2.0.0
+CatalogFile=brium17a.cat
+
+; ========== Manufacturer/Models sections ===========
+
+[Manufacturer]
+%ProviderName% = BrDrv_WinUSB,NTx86,NTamd64.6.0,NTx86.6.1,NTamd64.6.1
+
+; XP/Vista 32bit
+[BrDrv_WinUSB.NTx86]
+"Brother HL-2290" =USB_Install, USB\VID_04F9&PID_0093&MI_01
+"Brother HL-2295D" =USB_Install, USB\VID_04F9&PID_0094&MI_01
+"Brother HL-L2590DN" =USB_Install, USB\VID_04F9&PID_0095&MI_01
+"Brother HL-L2595DW" =USB_Install, USB\VID_04F9&PID_0096&MI_01
+"Brother HL-B2000D" =USB_Install, USB\VID_04F9&PID_0097&MI_01
+"Brother HL-B2050DN" =USB_Install, USB\VID_04F9&PID_0098&MI_01
+"Brother HL-B2080DW" =USB_Install, USB\VID_04F9&PID_0099&MI_01
+"Brother HL-L2310D" =USB_Install, USB\VID_04F9&PID_009A&MI_01
+"Brother HL-L2325DW" =USB_Install, USB\VID_04F9&PID_009B&MI_01
+"Brother HL-L2330D" =USB_Install, USB\VID_04F9&PID_009C&MI_01
+"Brother HL-L2335D" =USB_Install, USB\VID_04F9&PID_009D&MI_01
+"Brother HL-L2350DW" =USB_Install, USB\VID_04F9&PID_009E&MI_01
+"Brother HL-L2357DW" =USB_Install, USB\VID_04F9&PID_009F&MI_01
+"Brother HL-L2370DN" =USB_Install, USB\VID_04F9&PID_00A0&MI_01
+"Brother HL-L2370DW" =USB_Install, USB\VID_04F9&PID_00A1&MI_01
+"Brother HL-L2375DW" =USB_Install, USB\VID_04F9&PID_00A2&MI_01
+"Brother HL-L2379DW" =USB_Install, USB\VID_04F9&PID_0527&MI_01
+"Brother HL-L2385DW" =USB_Install, USB\VID_04F9&PID_00A3&MI_01
+
+; Vista 64bit
+[BrDrv_WinUSB.NTamd64.6.0]
+"Brother HL-2290" =USB_Install, USB\VID_04F9&PID_0093&MI_01
+"Brother HL-2295D" =USB_Install, USB\VID_04F9&PID_0094&MI_01
+"Brother HL-L2590DN" =USB_Install, USB\VID_04F9&PID_0095&MI_01
+"Brother HL-L2595DW" =USB_Install, USB\VID_04F9&PID_0096&MI_01
+"Brother HL-B2000D" =USB_Install, USB\VID_04F9&PID_0097&MI_01
+"Brother HL-B2050DN" =USB_Install, USB\VID_04F9&PID_0098&MI_01
+"Brother HL-B2080DW" =USB_Install, USB\VID_04F9&PID_0099&MI_01
+"Brother HL-L2310D" =USB_Install, USB\VID_04F9&PID_009A&MI_01
+"Brother HL-L2325DW" =USB_Install, USB\VID_04F9&PID_009B&MI_01
+"Brother HL-L2330D" =USB_Install, USB\VID_04F9&PID_009C&MI_01
+"Brother HL-L2335D" =USB_Install, USB\VID_04F9&PID_009D&MI_01
+"Brother HL-L2350DW" =USB_Install, USB\VID_04F9&PID_009E&MI_01
+"Brother HL-L2357DW" =USB_Install, USB\VID_04F9&PID_009F&MI_01
+"Brother HL-L2370DN" =USB_Install, USB\VID_04F9&PID_00A0&MI_01
+"Brother HL-L2370DW" =USB_Install, USB\VID_04F9&PID_00A1&MI_01
+"Brother HL-L2375DW" =USB_Install, USB\VID_04F9&PID_00A2&MI_01
+"Brother HL-L2379DW" =USB_Install, USB\VID_04F9&PID_0527&MI_01
+"Brother HL-L2385DW" =USB_Install, USB\VID_04F9&PID_00A3&MI_01
+
+; Windows 7/8 or later 32bit
+[BrDrv_WinUSB.NTx86.6.1]
+"Brother HL-2290" =USB_Install1009, USB\VID_04F9&PID_0093&MI_01
+"Brother HL-2295D" =USB_Install1009, USB\VID_04F9&PID_0094&MI_01
+"Brother HL-L2590DN" =USB_Install1009, USB\VID_04F9&PID_0095&MI_01
+"Brother HL-L2595DW" =USB_Install1009, USB\VID_04F9&PID_0096&MI_01
+"Brother HL-B2000D" =USB_Install1009, USB\VID_04F9&PID_0097&MI_01
+"Brother HL-B2050DN" =USB_Install1009, USB\VID_04F9&PID_0098&MI_01
+"Brother HL-B2080DW" =USB_Install1009, USB\VID_04F9&PID_0099&MI_01
+"Brother HL-L2310D" =USB_Install1009, USB\VID_04F9&PID_009A&MI_01
+"Brother HL-L2325DW" =USB_Install1009, USB\VID_04F9&PID_009B&MI_01
+"Brother HL-L2330D" =USB_Install1009, USB\VID_04F9&PID_009C&MI_01
+"Brother HL-L2335D" =USB_Install1009, USB\VID_04F9&PID_009D&MI_01
+"Brother HL-L2350DW" =USB_Install1009, USB\VID_04F9&PID_009E&MI_01
+"Brother HL-L2357DW" =USB_Install1009, USB\VID_04F9&PID_009F&MI_01
+"Brother HL-L2370DN" =USB_Install1009, USB\VID_04F9&PID_00A0&MI_01
+"Brother HL-L2370DW" =USB_Install1009, USB\VID_04F9&PID_00A1&MI_01
+"Brother HL-L2375DW" =USB_Install1009, USB\VID_04F9&PID_00A2&MI_01
+"Brother HL-L2379DW" =USB_Install1009, USB\VID_04F9&PID_0527&MI_01
+"Brother HL-L2385DW" =USB_Install1009, USB\VID_04F9&PID_00A3&MI_01
+
+; Windows 7/8 or later 64bit
+[BrDrv_WinUSB.NTamd64.6.1]
+"Brother HL-2290" =USB_Install1009, USB\VID_04F9&PID_0093&MI_01
+"Brother HL-2295D" =USB_Install1009, USB\VID_04F9&PID_0094&MI_01
+"Brother HL-L2590DN" =USB_Install1009, USB\VID_04F9&PID_0095&MI_01
+"Brother HL-L2595DW" =USB_Install1009, USB\VID_04F9&PID_0096&MI_01
+"Brother HL-B2000D" =USB_Install1009, USB\VID_04F9&PID_0097&MI_01
+"Brother HL-B2050DN" =USB_Install1009, USB\VID_04F9&PID_0098&MI_01
+"Brother HL-B2080DW" =USB_Install1009, USB\VID_04F9&PID_0099&MI_01
+"Brother HL-L2310D" =USB_Install1009, USB\VID_04F9&PID_009A&MI_01
+"Brother HL-L2325DW" =USB_Install1009, USB\VID_04F9&PID_009B&MI_01
+"Brother HL-L2330D" =USB_Install1009, USB\VID_04F9&PID_009C&MI_01
+"Brother HL-L2335D" =USB_Install1009, USB\VID_04F9&PID_009D&MI_01
+"Brother HL-L2350DW" =USB_Install1009, USB\VID_04F9&PID_009E&MI_01
+"Brother HL-L2357DW" =USB_Install1009, USB\VID_04F9&PID_009F&MI_01
+"Brother HL-L2370DN" =USB_Install1009, USB\VID_04F9&PID_00A0&MI_01
+"Brother HL-L2370DW" =USB_Install1009, USB\VID_04F9&PID_00A1&MI_01
+"Brother HL-L2375DW" =USB_Install1009, USB\VID_04F9&PID_00A2&MI_01
+"Brother HL-L2379DW" =USB_Install1009, USB\VID_04F9&PID_0527&MI_01
+"Brother HL-L2385DW" =USB_Install1009, USB\VID_04F9&PID_00A3&MI_01
+
+; =================== Installation ===================
+
+;[1]
+[USB_Install]
+Include=winusb.inf
+Needs=WINUSB.NT
+AddReg=USB_Install_Reg
+
+;[1']
+[USB_Install1009]
+Include=winusb.inf
+Needs=WINUSB.NT
+AddReg=USB_Install_Reg
+
+[USB_Install_Reg]
+HKR,,PortSubClassOther,1,01
+
+;[2]
+[USB_Install.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[USB_Install1009.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+;[3]
+[WinUSB_ServiceInstall]
+DisplayName     = %BrDrv_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+;[4]
+[USB_Install.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+
+[USB_Install1009.Wdf]
+KmdfService=WINUSB, WinUsb_Install1009
+
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.5
+
+[WinUSB_Install1009]
+KmdfLibraryVersion=1.9
+
+;[5]
+[USB_Install.HW]
+AddReg=Dev_AddReg
+
+[USB_Install1009.HW]
+AddReg=Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{C1B020BA-8308-45E2-BA53-2BFE6BD9DF3D}"
+
+;[6]
+[USB_Install.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[USB_Install1009.CoInstallers]
+AddReg=CoInstallers1009_AddReg
+CopyFiles=CoInstallers1009_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01005.dll,WdfCoInstaller","WinUSBCoInstaller.dll"
+
+[CoInstallers_CopyFiles]
+WinUSBCoInstaller.dll
+WdfCoInstaller01005.dll
+
+[CoInstallers1009_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll","WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[CoInstallers1009_CopyFiles]
+WinUSBCoInstaller2.dll
+WdfCoInstaller01009.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+DefaultDestDir = 12
+
+; ================= Source Media Section =====================
+;[7]
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\x86
+2 = %DISK_NAME%,,,\amd64
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller.dll=1
+WdfCoInstaller01005.dll=1
+WinUSBCoInstaller2.dll=1
+WdfCoInstaller01009.dll=1
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller.dll=2
+WdfCoInstaller01005.dll=2
+WinUSBCoInstaller2.dll=2
+WdfCoInstaller01009.dll=2
+
+; =================== Strings ===================
+
+[Strings]
+ProviderName="Brother"
+BrDrv_SvcDesc="Brother WinUSB Port Driver"
+DISK_NAME="Install Disk"
+DriverPackageDisplayName="HL-2290, HL-2295D, HL-L2590DN, HL-L2595DW, HL-B2000D, HL-B2050DN, HL-B2080DW, HL-L2310D, HL-L2325DW, HL-L2330D, HL-L2335D, HL-L2350DW, HL-L2357DW, HL-L2370DN, HL-L2370DW, HL-L2375DW, HL-L2379DW, HL-L2385DW"
+
+BrSerIb.SvcDesc = "Brother Serial Interface Driver(WDM)"
+BrUsbSIb.SvcDesc = "Brother Serial USB Driver(WDM)"
+BrDrvDisk1 = "Brother Driver Disk"

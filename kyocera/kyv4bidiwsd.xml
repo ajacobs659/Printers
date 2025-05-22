@@ -1,0 +1,76 @@
+<?xml version='1.0'?>
+<bidi:Definition xmlns:bidi='http://schemas.microsoft.com/windows/2005/03/printing/bidi'>
+  <Schema xmlns:nprt='http://schemas.microsoft.com/windows/2006/08/wdp/print'>
+    <Property name='Printer'>
+      <Property name='DeviceInfo'>
+        <Value name='FriendlyName' query='nprt:PrinterDescription' filter='nprt:PrinterDescription/nprt:PrinterName' type='BIDI_STRING' xmllang='true'/>
+        <Value name='Location' query='nprt:PrinterDescription' filter='nprt:PrinterDescription/nprt:PrinterLocation' type='BIDI_STRING' xmllang='true'/>
+        <Value name='Comment' query='nprt:PrinterDescription' filter='nprt:PrinterDescription/nprt:PrinterInfo' type='BIDI_STRING' xmllang='true'/>
+        <Value name='IEEE1284DeviceId' query='nprt:PrinterDescription' filter='nprt:PrinterDescription/nprt:DeviceId' type='BIDI_STRING'/>
+      </Property>
+      <Property name='Configuration'>
+<!-- ~~~~~ Disk Type Queries ~~~~~ -->
+        <!-- "\Printer.Configuration.HardDisk:Installed" Returns Boolean -->
+        <Property name='HardDisk'>
+          <Installed name='Installed' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:Storage/nprt:StorageEntry[nprt:Type="HardDisk" and @nprt:Removed="false"]' drvPrinterEvent='true'/>
+        </Property>
+        <!-- "\Printer.Configuration.RAMDisk:Installed" Returns Boolean -->
+        <Property name='RAMDisk'>
+          <Installed name='Installed' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:Storage/nprt:StorageEntry[nprt:Type="RAM" and @nprt:Removed="false"]' drvPrinterEvent='true'/>
+        </Property>
+      </Property>
+      <Property name='Consumables'>
+        <Parameter name='$Name$' parameter='Name' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:Consumables/nprt:ConsumableEntry/@nprt:Name'>
+          <Installed name='Installed' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:Consumables/nprt:ConsumableEntry[@nprt:Name="$Name$"]' drvPrinterEvent='true'/>
+          <Value name='Type' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:Consumables/nprt:ConsumableEntry[@nprt:Name="$Name$"]/nprt:Type' type='BIDI_STRING' drvPrinterEvent='true'/>
+          <Value name='Color' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:Consumables/nprt:ConsumableEntry[@nprt:Name="$Name$"]/nprt:Color' type='BIDI_STRING' drvPrinterEvent='true'/>
+          <Value name='Level' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:Consumables/nprt:ConsumableEntry[@nprt:Name="$Name$"]/nprt:Level' type='BIDI_INT' drvPrinterEvent='true'/>
+          <Value name='Model' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:Consumables/nprt:ConsumableEntry[@nprt:Name="$Name$"]/nprt:Model' type='BIDI_STRING' drvPrinterEvent='true'/>
+        </Parameter>
+      </Property>
+      <Property name='Layout'>
+        <Property name='InputBin'>
+          <Parameter name='$TrayName$' parameter='TrayName' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry/@nprt:Name'>
+            <Value name='MediaSize' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="$TrayName$"]/nprt:MediaSize' type='BIDI_STRING' drvPrinterEvent='true'/>
+            <Value name='MediaType' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="$TrayName$"]/nprt:MediaType' type='BIDI_STRING' drvPrinterEvent='true'/>
+            <Value name='MediaColor' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="$TrayName$"]/nprt:MediaColor' type='BIDI_STRING' drvPrinterEvent='true'/>
+            <Value name='FeedDirection' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="$TrayName$"]/nprt:FeedDirection' type='BIDI_STRING' drvPrinterEvent='true'/>
+            <Value name='Capacity' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="$TrayName$"]/nprt:Capacity' type='BIDI_INT' drvPrinterEvent='true'/>
+            <Value name='Level' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="$TrayName$"]/nprt:Level' type='BIDI_INT' drvPrinterEvent='true'/>
+          </Parameter>
+<!-- ~~~~~ Paper Feeder Queries ~~~~~ -->
+          <!-- "\Printer.Layout.InputBin.CassetteTwo:Installed" Returns Boolean -->
+          <Property name='CassetteTwo'>
+            <Installed name='Installed' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="Tray2" and @nprt:Removed="false"]' drvPrinterEvent='true'/>
+          </Property>
+          <!-- "\Printer.Layout.InputBin.CassetteThree:Installed" Returns Boolean -->
+          <Property name='CassetteThree'>
+            <Installed name='Installed' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="Tray3" and @nprt:Removed="false"]' drvPrinterEvent='true'/>
+          </Property>
+          <!-- "\Printer.Layout.InputBin.CassetteFour:Installed" Returns Boolean -->
+          <Property name='CassetteFour'>
+            <Installed name='Installed' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="Tray4" and @nprt:Removed="false"]' drvPrinterEvent='true'/>
+          </Property>
+          <!-- "\Printer.Layout.InputBin.CassetteFive:Installed" Returns Boolean -->
+          <Property name='CassetteFive'>
+            <Installed name='Installed' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="Tray5" and @nprt:Removed="false"]' drvPrinterEvent='true'/>
+          </Property>
+          <!-- "\Printer.Layout.InputBin.CassetteSix:Installed" Returns Boolean -->
+          <Property name='CassetteSix'>
+            <Installed name='Installed' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="Tray6" and @nprt:Removed="false"]' drvPrinterEvent='true'/>
+          </Property>
+          <!-- "\Printer.Layout.InputBin.CassetteSeven:Installed" Returns Boolean -->
+          <Property name='CassetteSeven'>
+            <Installed name='Installed' query='nprt:PrinterConfiguration' filter='nprt:PrinterConfiguration/nprt:InputBins/nprt:InputBinEntry[@nprt:Name="Tray7" and @nprt:Removed="false"]' drvPrinterEvent='true'/>
+          </Property>
+        </Property>
+      </Property>
+      <Property name='Status'>
+        <Property name='Summary'>
+          <Value name='State' query='nprt:PrinterStatus' filter='nprt:PrinterStatus/nprt:PrinterState' type='BIDI_STRING'/>
+          <Value name='StateReason' query='nprt:PrinterStatus' filter='nprt:PrinterStatus/nprt:PrinterPrimaryStateReason' type='BIDI_STRING'/>
+        </Property>
+      </Property>
+    </Property>
+  </Schema>
+</bidi:Definition>

@@ -1,0 +1,235 @@
+*%******************************************************************************
+*%                                                                             *
+*% Copyright (c) 2020 KYOCERA Document Solutions Inc.                          *
+*% All Rights Reserved.                                                        *
+*%                                                                             *
+*%******************************************************************************
+
+*%*****************************************************************************
+*%	PAPER SOURCES
+*%*****************************************************************************
+
+*Feature: Cassette2
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: Cassette2
+	{
+		*QueryString: "\Printer.Layout.InputBin.PaperFeeder001:Installed"
+	}
+	*BidiResponse: Cassette2
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(Cassette2)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*Feature: MultipurposeFeeder2
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: MultipurposeFeeder2
+	{
+		*QueryString: "\Printer.Layout.InputBin.MultiPurposePaperFeeder001:Installed"
+	}
+	*BidiResponse: MultipurposeFeeder2
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(MultipurposeFeeder2)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*Feature: Cassette3
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: Cassette3
+	{
+		*QueryString: "\Printer.Layout.InputBin.PaperFeeder002:Installed"
+	}
+	*BidiResponse: Cassette3
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(Cassette3)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*Feature: MultipurposeFeeder3
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: MultipurposeFeeder3
+	{
+		*QueryString: "\Printer.Layout.InputBin.MultiPurposePaperFeeder002:Installed"
+	}
+	*BidiResponse: MultipurposeFeeder3
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(MultipurposeFeeder3)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*Feature: Cassette4
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: Cassette4
+	{
+		*QueryString: "\Printer.Layout.InputBin.PaperFeeder003:Installed"
+	}
+	*BidiResponse: Cassette4
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(Cassette4)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*Feature: MultipurposeFeeder4
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: MultipurposeFeeder4
+	{
+		*QueryString: "\Printer.Layout.InputBin.MultiPurposePaperFeeder003:Installed"
+	}
+	*BidiResponse: MultipurposeFeeder4
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(MultipurposeFeeder4)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*Feature: Cassette5
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: Cassette5
+	{
+		*QueryString: "\Printer.Layout.InputBin.PaperFeeder004:Installed"
+	}
+	*BidiResponse: Cassette5
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(Cassette5)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*Feature: MultipurposeFeeder5
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: MultipurposeFeeder5
+	{
+		*QueryString: "\Printer.Layout.InputBin.MultiPurposePaperFeeder004:Installed"
+	}
+	*BidiResponse: MultipurposeFeeder5
+	{
+		*ResponseType: BIDI_STRING
+		*ResponseData: ENUM_OPTION(MultipurposeFeeder5)
+	}
+	*Option: False
+	{
+		*BidiValue: STRING("FALSE")
+	}
+	*Option: True
+	{
+		*BidiValue: STRING("TRUE")
+	}
+}
+
+*%*****************************************************************************
+*%	OPTIONAL DISKS
+*%*****************************************************************************
+
+*Feature: PrinterSSD
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: PrinterSSD
+	{
+		*QueryString: "\Printer.Configuration.HardDisk:Installed"
+	}
+	*BidiResponse: PrinterSSD
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(PrinterSSD)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
+*Feature: RAMDisk
+{
+	*FeatureType: PRINTER_PROPERTY
+	*BidiQuery: RAMDisk
+	{
+		*QueryString: "\Printer.Configuration.RAMDisk:Installed"
+	}
+	*BidiResponse: RAMDisk
+	{
+		*ResponseType: BIDI_BOOL
+		*ResponseData: ENUM_OPTION(RAMDisk)
+	}
+	*Option: False
+	{
+		*BidiValue: BOOL(FALSE)
+	}
+	*Option: True
+	{
+		*BidiValue: BOOL(TRUE)
+	}
+}
+
